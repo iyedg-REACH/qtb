@@ -34,9 +34,9 @@ test_that("applying cleaning log with NA works", {
   expect_equal(
     apply_cleaning_log(
       df,
-      df_value_col = value,
+      df_values_col = value,
       cleaning_log,
-      cleaning_log_value_col = new.value,
+      cleaning_log_values_col = new.value,
       by = c("_uuid" = "_uuid", "name" = "question.names")
     ),
     expected_df
@@ -66,11 +66,14 @@ test_that("applying cleaning log with different types works", {
     "a", "string_to_numeric", "0"
   )
 
-  apply_cleaning_log(
-    df,
-    df_value_col = value,
-    cleaning_log,
-    cleaning_log_value_col = updated.value,
-    by = c("_uuid" = "_uuid", "name" = "question.names")
+  expect_equal(
+    apply_cleaning_log(
+      df,
+      df_values_col = value,
+      cleaning_log,
+      cleaning_log_values_col = updated.value,
+      by = c("_uuid" = "_uuid", "name" = "question.names")
+    ),
+    expected_df
   )
 })

@@ -1,14 +1,14 @@
 apply_cleaning_log <- function(df,
-                               df_value_col,
+                               df_values_col,
                                cleaning_log_df,
-                               cleaning_log_value_col,
+                               cleaning_log_values_col,
                                by = NULL,
                                ...) {
   clean_subset <- df |>
     dplyr::inner_join(cleaning_log_df, by = by, ...) |>
-    select(-{{ df_value_col }}) |>
+    select(-{{ df_values_col }}) |>
     dplyr::rename(
-      "{{df_value_col}}" := rlang::as_name(rlang::enquo(cleaning_log_value_col))
+      "{{df_values_col}}" := rlang::as_name(rlang::enquo(cleaning_log_values_col))
     ) |>
     select(dplyr::all_of(names(df)))
 
