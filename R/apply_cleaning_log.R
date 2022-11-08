@@ -10,7 +10,7 @@ apply_cleaning_log <- function(df,
     dplyr::rename(
       "{{df_value_col}}" := rlang::as_name(rlang::enquo(cleaning_log_value_col))
     ) |>
-    select(-"old.value")
+    select(dplyr::all_of(names(df)))
 
   untouched_subset <- df |>
     dplyr::anti_join(cleaning_log_df, by = by, ...)
