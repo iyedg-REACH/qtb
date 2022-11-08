@@ -5,7 +5,7 @@ apply_cleaning_log <- function(df,
                                by = NULL,
                                ...) {
   clean_subset <- df |>
-    inner_join(cleaning_log_df, by = by, ...) |>
+    dplyr::inner_join(cleaning_log_df, by = by, ...) |>
     select(-{{ df_value_col }}) |>
     dplyr::rename(
       "{{df_value_col}}" := rlang::as_name(rlang::enquo(cleaning_log_value_col))
