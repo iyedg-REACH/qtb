@@ -1,0 +1,79 @@
+item,group,label,weight
+q_salt_price_per_kilo,food,"Salt
+(1 kg)",1.00
+q_sugar_price_per_kilo,food,"Sugar
+(1 kg)",2.00
+q_flour_price_per_kilo,food,"Flour
+(1 kg)",0.00
+q_rice_price_per_kilo,food,"Rice
+(1 kg)",10.50
+q_cmilk_price_per_200ml,food,"Condensed milk
+(200 ml)",0.00
+q_pasta_price_per_500g,food,"Pasta
+(500 g)",19.00
+q_couscous_price_per_kilo,food,"Couscous
+(1 kg)",5.50
+q_gtea_price_per_250g,food,"Green tea
+(250 g)",0.00
+q_lamb_price_per_kilo,food,Lamb meat (1 kg),0.00
+q_tomatop_price_per_400g,food,"Tomato paste
+(400 g)",15.00
+q_chickpeas_price_per_400g,food,"Chickpeas
+(400 g)",0.00
+q_beans_price_per_400g,food,Beans (400 g),15.00
+q_milk_price_per_liter,food,"Milk
+(1 L)",8.50
+q_btea_price_per_250g,food,"Black tea
+(250 g)",8.00
+q_oil_price_per_liter,food,"Vegetable oil
+(1 L)",5.00
+q_tuna_price_per_200g,food,"Canned tuna
+(200 g)",20.00
+q_eggs_price_per_30eggs,food,"Eggs
+(30 eggs)",4.00
+q_chicken_price_per_kilo,food,"Chicken meat
+(1 kg)",7.50
+q_bread_price_per_5medium_pieces,food,"Bread
+(5 pieces)",32.00
+q_tomatoes_price_per_kilo,food,"Tomatoes
+(1 kg)",10.00
+q_onions_price_per_kilo,food,"Onions
+(1 kg)",7.00
+q_pepper_price_per_kilo,food,"Peppers
+(1 kg)",4.50
+q_potatoes_price_per_kilo,food,"Potatoes
+(1 kg)",12.00
+q_water_price_per_liter,food,"Bottled water
+(1 L)",0.00
+q_hwsoap_price_per_piece,hygiene,"Handwashing soap
+(1 bar)",9.00
+q_hsan_price_per_liter,hygiene,Hand Sanitiser (1L),0.00
+q_ldet_price_per_litre,hygiene,"Laundry detergent
+ (liquid 1L)",1.30
+q_ssan_price_per_liter,hygiene,"Antibacterial Surface 
+Sanitiser (1L)",0.00
+q_diapers_price_per_30diapers,hygiene,"Baby diapers
+(30 diapers)",0.00
+q_dsoap_price_per_liter,hygiene,"Dishwashing liquid
+(1 L)",1.30
+q_toothpaste_price_per_tube,hygiene,"Toothpaste
+(100 ml)",5.00
+q_lsoap_price_per_kilo,hygiene,Laundry powder,0.00
+q_shampoo_price_per_250ml,hygiene,Shampoo,0.00
+q_spads_price_per_10pads,hygiene,"Sanitary pads
+(10 pads)",4.00
+q_toothbrush_price_per_brush,hygiene,"Toothbrush
+(1 brush)",0.00
+q_fuel_public_price_per_11kg,cooking_fuel,"public Fuel 
+11 kg",2.00
+q_fuel_private_price_per_11kg,cooking_fuel,"private Fuel 
+11 kg",2.00
+q_paracetamol_price_per_12,pharmaceutical,"Paracetamol 500mg
+ (Pack of 12 tablets)",0.00
+q_Ibuprofen_price_per_20,pharmaceutical,Ibuprofen 400mg (Pack of 20 tablets),0.00
+q_vitamin_b_complex_price_per_40,pharmaceutical,Vitamin B Complex (Pack of 40 tablets),0.00
+q_amoxicillin_price_per_21,pharmaceutical,Amoxicillin 500mg (Pack of 21 tablets),0.00
+q_metoclopramide_price_per_40,pharmaceutical,Metoclopramide 10mg (Pack of 40 tablets),0.00
+q_public_gasoline_price_per_liter,gasoline,public_gasoline 1L,0.00
+q_private_gasoline_price_per_liter,gasoline,"private_gasoline
+1L",0.00
