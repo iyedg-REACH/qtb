@@ -14,3 +14,14 @@
 #'
 #' @keywords datasets
 "meb_weights"
+
+
+
+#' JMMI dataset for February 2022
+#'
+#' The cleaned dataset for February 2022 JMMI
+#'
+#' @docType data
+#'
+#' @keywords datasets
+"jmmi_2022_feb"

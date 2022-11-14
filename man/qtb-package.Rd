@@ -4,8 +4,8 @@
 \name{qtb-package}
 \alias{qtb}
 \alias{qtb-package}
-\title{qtb: What the Package Does (Title Case)}
+\title{qtb: The MEB Toolkit for REACH's Libya Mission}
 \description{
-More about what it does (maybe more than one line) Use four spaces when indenting paragraphs within the Description.
+A toolkit for computing the cost of a Minimum Expenditure Basket (MEB) under the Joint Market Monitoring Initiative (JMMI) of REACH in Libya.
 }
 \keyword{internal}
