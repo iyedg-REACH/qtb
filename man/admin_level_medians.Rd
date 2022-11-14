@@ -17,3 +17,8 @@ A dataframe with median prices for each item in the MEB per Administrative Level
 \description{
 Compute Median Prices per Administrative Level
 }
+\examples{
+admin_level_medians(jmmi_2022_feb, q_region)
+admin_level_medians(jmmi_2022_feb, q_district)
+admin_level_medians(jmmi_2022_feb, q_municipality)
+}
