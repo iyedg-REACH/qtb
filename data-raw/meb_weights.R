@@ -5,4 +5,4 @@ meb_weights <- readr::read_csv(
   show_col_types = FALSE
 )
 
-usethis::use_data(meb_weights, overwrite = TRUE)
+usethis::use_data(meb_weights, overwrite = TRUE, internal = TRUE)

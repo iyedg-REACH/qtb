@@ -6,5 +6,6 @@
 #' @importFrom dplyr select mutate group_by pull filter
 #' @importFrom tidyr pivot_longer pivot_wider
 #' @importFrom tibble tribble
+#' @importFrom stats median
 ## usethis namespace: end
 NULL
