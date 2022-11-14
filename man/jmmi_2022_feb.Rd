@@ -7,6 +7,9 @@
 \format{
 An object of class \code{data.frame} with 658 rows and 562 columns.
 }
+\source{
+\url{https://www.impact-repository.org/document/reach/a5964fda/reach_lby_dataset_joint_market_monitoring_initiative_jmmi_February_2022.xlsx}
+}
 \usage{
 jmmi_2022_feb
 }
