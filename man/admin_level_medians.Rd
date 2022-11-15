@@ -4,12 +4,14 @@
 \alias{admin_level_medians}
 \title{Compute Median Prices per Administrative Level}
 \usage{
-admin_level_medians(df, admin_level_col)
+admin_level_medians(df, admin_level_col, item_group = NULL)
 }
 \arguments{
 \item{df}{Monthly JMMI clean dataset}
 
 \item{admin_level_col}{a column name indicating a Libyan Administrative Level}
+
+\item{item_group}{item_group}
 }
 \value{
 A dataframe with median prices for each item in the MEB per Administrative Level
