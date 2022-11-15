@@ -7,4 +7,5 @@ reference:
   - contains("medians")
 - title: "Datasets"
   contents:
+  - meb_weights
   - jmmi_2022_feb
