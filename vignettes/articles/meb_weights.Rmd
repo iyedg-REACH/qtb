@@ -1,0 +1,59 @@
+---
+title: "MEB Weights"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(qtb)
+```
+
+Please note that the prices for items where the weight is 0 are collected but are 
+not included in the calculation of MEB costs.
+
+## Food Weights
+
+```{r}
+meb_weights |>
+  dplyr::filter(group == "food") |>
+  gt::gt()
+```
+
+## Hygiene weights
+
+```{r}
+meb_weights |>
+  dplyr::filter(group == "hygiene") |>
+  gt::gt()
+```
+
+## Cooking Fuel weights
+
+```{r}
+meb_weights |>
+  dplyr::filter(group == "cooking_fuel") |>
+  gt::gt()
+```
+
+## Pharmaceutical Products weights
+
+
+```{r}
+meb_weights |>
+  dplyr::filter(group == "pharmaceutical") |>
+  gt::gt()
+```
+
+## Gasoline Weights
+
+
+```{r}
+meb_weights |>
+  dplyr::filter(group == "gasoline") |>
+  gt::gt()
+```
