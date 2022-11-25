@@ -2,7 +2,7 @@
 #'
 #' @param df Monthly JMMI clean dataset
 #' @param admin_level_col a column name indicating a Libyan Administrative Level
-#' @param item_group item_group
+#' @param item_group Optional filter to limit the computation to a specific item group in the Minimum Expenditure Basket
 #'
 #' @return A dataframe with median prices for each item in the MEB per Administrative Level
 #'

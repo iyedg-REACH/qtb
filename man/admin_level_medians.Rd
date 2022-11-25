@@ -11,7 +11,7 @@ admin_level_medians(df, admin_level_col, item_group = NULL)
 
 \item{admin_level_col}{a column name indicating a Libyan Administrative Level}
 
-\item{item_group}{item_group}
+\item{item_group}{Optional filter to limit the computation to a specific item group in the Minimum Expenditure Basket}
 }
 \value{
 A dataframe with median prices for each item in the MEB per Administrative Level
