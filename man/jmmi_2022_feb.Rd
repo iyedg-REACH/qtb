@@ -5,7 +5,7 @@
 \alias{jmmi_2022_feb}
 \title{JMMI dataset for February 2022}
 \format{
-An object of class \code{data.frame} with 658 rows and 562 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 658 rows and 562 columns.
 }
 \source{
 \url{https://www.impact-repository.org/document/reach/a5964fda/reach_lby_dataset_joint_market_monitoring_initiative_jmmi_February_2022.xlsx}
