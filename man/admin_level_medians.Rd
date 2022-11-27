@@ -4,14 +4,12 @@
 \alias{admin_level_medians}
 \title{Compute Median Prices per Administrative Level}
 \usage{
-admin_level_medians(df, admin_level_col, item_group = NULL)
+admin_level_medians(df, admin_level = "municipality")
 }
 \arguments{
 \item{df}{Monthly JMMI clean dataset}
 
-\item{admin_level_col}{a column name indicating a Libyan Administrative Level}
-
-\item{item_group}{Optional filter to limit the computation to a specific item group in the Minimum Expenditure Basket}
+\item{admin_level}{an administrative level in Libya, can be one of "municipality", "district", or "region"}
 }
 \value{
 A dataframe with median prices for each item in the MEB per Administrative Level
@@ -20,7 +18,7 @@ A dataframe with median prices for each item in the MEB per Administrative Level
 Compute Median Prices per Administrative Level
 }
 \examples{
-admin_level_medians(jmmi_2022_feb, q_region)
-admin_level_medians(jmmi_2022_feb, q_district)
-admin_level_medians(jmmi_2022_feb, q_municipality)
+admin_level_medians(jmmi_2022_feb, "region")
+admin_level_medians(jmmi_2022_feb, "district")
+admin_level_medians(jmmi_2022_feb, "municipality")
 }
