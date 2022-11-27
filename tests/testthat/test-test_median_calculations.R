@@ -64,7 +64,6 @@ test_that("median calculations match expected", {
     dplyr::filter(
       !stringr::str_detect(stringr::str_to_lower(q_municipality), "median"),
       q_municipality != "Tripoli", # Ignoring Tripoli as it is the composite value for the municipalities of the Tripoli District
-      item != "cooking_fuel_price_per_11kg" # Ignored as it is a composite of two underlying variables
     ) |>
     dplyr::mutate(q_municipality = stringr::str_to_lower(q_municipality)) |>
     dplyr::arrange(q_municipality, item, median_item_price)

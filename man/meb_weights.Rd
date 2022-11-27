@@ -5,7 +5,7 @@
 \alias{meb_weights}
 \title{MEB weights for the Libyan JMMI}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 44 rows and 4 columns.
+An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 45 rows and 4 columns.
 }
 \usage{
 meb_weights

@@ -3,7 +3,7 @@ get_expected_item_group <- function(item_group) {
     meb_group <- "food_meb_cost"
   } else if (item_group == "hygiene") {
     meb_group <- "nfi_meb_cost"
-  } else if (item_group) {
+  } else if (item_group == "cooking_fuel") {
     meb_group <- "fuel_meb_cost"
   }
 
@@ -19,7 +19,7 @@ get_expected_item_group <- function(item_group) {
       )
     ) |>
     dplyr::select(-all_of("meb")) |>
-    dplyr::rename(meb_cost = .data[["cost"]]) |>
+    dplyr::rename(meb_cost = cost) |>
     dplyr::arrange(q_municipality, meb_cost)
 }
 
@@ -52,4 +52,15 @@ test_that("meb computation with an item group matches expected", {
     prepare_result()
 
   expect_equal(hygiene_result, expected_hygiene_group)
+
+  expected_fuel_group <- get_expected_item_group("cooking_fuel")
+
+  fuel_result <- compute_meb_cost(
+    df = jmmi_2022_feb,
+    admin_level_col = q_municipality,
+    item_group = "cooking_fuel"
+  ) |>
+    prepare_result()
+
+  expect_equal(fuel_result, expected_fuel_group)
 })

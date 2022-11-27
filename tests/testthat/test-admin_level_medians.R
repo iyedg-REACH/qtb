@@ -31,6 +31,16 @@ test_that("return all groups when none specified", {
     pharmaceutical_medians
   )
 
+  cooking_fuel_medians <- admin_level_medians(jmmi_2022_feb, q_region, "cooking_fuel")
+  cooking_fuel_items <- meb_weights |>
+    dplyr::filter(.data[["group"]] == "cooking_fuel") |>
+    dplyr::pull(.data[["item"]])
+
+  expect_equal(
+    all_groups_medians |> dplyr::filter(.data[["item"]] %in% cooking_fuel_items),
+    cooking_fuel_medians
+  )
+
   expect_setequal(
     all_groups_medians |> dplyr::distinct(.data[["item"]]) |> dplyr::pull(.data[["item"]]),
     meb_weights |> dplyr::distinct(.data[["item"]]) |> dplyr::pull(.data[["item"]])

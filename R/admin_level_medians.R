@@ -15,6 +15,13 @@
 admin_level_medians <- function(df,
                                 admin_level_col,
                                 item_group = NULL) {
+  # if (interactive()) {
+  #   devtools::load_all()
+  # }
+  # df <- jmmi_2022_feb
+  # admin_level_col <- rlang::sym("q_municipality")
+  # item_group <- NULL
+
   if (!is.null(item_group)) {
     valid_groups <- dplyr::distinct(meb_weights, .data[["group"]]) |> dplyr::pull(.data[["group"]])
     assertthat::assert_that(item_group %in% valid_groups,
@@ -23,10 +30,24 @@ admin_level_medians <- function(df,
     meb_weights <- meb_weights |> filter(.data[["group"]] == item_group)
   }
 
-  df |>
+  medians_df <- df |>
     select({{ admin_level_col }}, pull(meb_weights, .data[["item"]])) |>
     pivot_longer(-{{ admin_level_col }}, names_to = "item", values_to = "price") |>
+    filter(item != "cooking_fuel_price_per_11kg") |>
     group_by({{ admin_level_col }}, .data[["item"]]) |>
     dplyr::summarise(median_item_price = median(.data[["price"]], na.rm = TRUE)) |>
     dplyr::ungroup()
+
+  if (item_group == "cooking_fuel" || is.null(item_group)) {
+    medians_df <- medians_df |>
+      pivot_wider(id_cols = {{ admin_level_col }}, names_from = item, values_from = median_item_price) |>
+      dplyr::rowwise() |>
+      dplyr::mutate(cooking_fuel_price_per_11kg = median(c(
+        q_fuel_public_price_per_11kg,
+        q_fuel_private_price_per_11kg
+      ), na.rm = TRUE)) |>
+      dplyr::ungroup() |>
+      pivot_longer(-{{ admin_level_col }}, names_to = "item", values_to = "median_item_price")
+  }
+  return(medians_df)
 }
