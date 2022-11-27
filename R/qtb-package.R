@@ -3,9 +3,8 @@
 
 ## usethis namespace: start
 #' @importFrom rlang .data `:=`
-#' @importFrom dplyr select mutate group_by pull filter
+#' @importFrom dplyr select mutate group_by ungroup pull filter summarise inner_join
 #' @importFrom tidyr pivot_longer pivot_wider
-#' @importFrom tibble tribble
 #' @importFrom stats median
 ## usethis namespace: end
 NULL
