@@ -15,13 +15,6 @@
 admin_level_medians <- function(df,
                                 admin_level_col,
                                 item_group = NULL) {
-  # if (interactive()) {
-  #   devtools::load_all()
-  # }
-  # df <- jmmi_2022_feb
-  # admin_level_col <- rlang::sym("q_municipality")
-  # item_group <- NULL
-
   if (!is.null(item_group)) {
     valid_groups <- dplyr::distinct(meb_weights, .data[["group"]]) |> dplyr::pull(.data[["group"]])
     assertthat::assert_that(item_group %in% valid_groups,
