@@ -1,3 +1,19 @@
+compute_fuel_median <- function(df, id_cols, names_from, values_from) {
+  df |>
+    pivot_wider(id_cols = {{ id_cols }}, names_from = {{ names_from }}, values_from = {{ values_from }}) |>
+    dplyr::rowwise() |>
+    mutate(cooking_fuel_price_per_11kg = median(c(
+      q_fuel_public_price_per_11kg,
+      q_fuel_private_price_per_11kg
+    ), na.rm = TRUE)) |>
+    ungroup() |>
+    pivot_longer(
+      cols = -{{ id_cols }},
+      names_to = rlang::as_string({{ names_from }}),
+      values_to = rlang::as_string({{ values_from }})
+    )
+}
+
 #' Compute Median Prices per Administrative Level
 #'
 #' @param df Monthly JMMI clean dataset
@@ -35,15 +51,9 @@ admin_level_medians <- function(df,
       pivot_longer(-{{ admin_level_col }}, names_to = "item", values_to = "price") |>
       group_by({{ admin_level_col }}, .data[["item"]]) |>
       summarise(median_item_price = median(.data[["price"]], na.rm = TRUE)) |>
-      ungroup() |>
-      pivot_wider(id_cols = {{ admin_level_col }}, names_from = "item", values_from = "median_item_price") |>
-      dplyr::rowwise() |>
-      mutate(cooking_fuel_price_per_11kg = median(c(
-        q_fuel_public_price_per_11kg,
-        q_fuel_private_price_per_11kg
-      ), na.rm = TRUE)) |>
-      ungroup() |>
-      pivot_longer(-{{ admin_level_col }}, names_to = "item", values_to = "median_item_price")
+      ungroup()
+    medians_df <- medians_df |>
+      compute_fuel_median(id_cols = admin_level_col, names_from = "item", values_from = "median_item_price")
   } else if (admin_level == "region") {
     ignored_municipalities <- c(
       "Abusliem",
