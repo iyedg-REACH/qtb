@@ -3,12 +3,13 @@ test_that(
   {
     municipality_computed_medians <- admin_level_medians(jmmi_2022_feb, "municipality") |>
       dplyr::mutate(q_municipality = tolower(q_municipality)) |>
-      dplyr::select(dplyr::all_of(names(city_medians))) |>
+      dplyr::select(q_municipality, item, median_item_price) |>
       dplyr::arrange(q_municipality, item)
 
     municipality_expected_medians <- city_medians |>
       dplyr::mutate(q_municipality = tolower(q_municipality)) |>
       dplyr::filter(!(grepl("median", q_municipality) | grepl("tripoli$", q_municipality))) |>
+      dplyr::select(q_municipality, item, median_item_price) |>
       dplyr::arrange(q_municipality, item)
 
     expect_equal(
@@ -19,12 +20,13 @@ test_that(
     tripoli_computed_medians <- admin_level_medians(jmmi_2022_feb, "district") |>
       dplyr::filter(q_district == "Tripoli") |>
       dplyr::rename(q_municipality = q_district) |>
-      dplyr::select(dplyr::all_of(names(city_medians))) |>
+      dplyr::select(q_municipality, item, median_item_price) |>
       dplyr::arrange(q_municipality, item)
 
     # This test contains manual corrections
     tripoli_expected_medians <- city_medians |>
       dplyr::filter(grepl("Tripoli$", q_municipality)) |>
+      dplyr::select(q_municipality, item, median_item_price) |>
       dplyr::arrange(q_municipality, item) |>
       dplyr::mutate(
         median_item_price = dplyr::case_when(
@@ -43,13 +45,14 @@ test_that(
     region_computed_medians <- admin_level_medians(jmmi_2022_feb, "region") |>
       dplyr::rename(q_municipality = q_region) |>
       mutate(q_municipality = stringr::str_extract(q_municipality, "^\\w+")) |>
-      dplyr::select(dplyr::all_of(names(city_medians))) |>
+      dplyr::select(q_municipality, item, median_item_price) |>
       dplyr::arrange(q_municipality, item)
 
 
     region_expected_medians <- city_medians |>
       filter(grepl("edian", q_municipality)) |>
       mutate(q_municipality = stringr::str_extract(q_municipality, "\\w+$")) |>
+      dplyr::select(q_municipality, item, median_item_price) |>
       dplyr::arrange(q_municipality, item) |>
       dplyr::mutate(
         median_item_price = dplyr::case_when(
@@ -67,11 +70,12 @@ test_that(
 
     overall_computed_medians <- admin_level_medians(jmmi_2022_feb, admin_level = "overall") |>
       select(any_of(names(city_medians))) |>
+      dplyr::select(item, median_item_price) |>
       dplyr::arrange(item)
 
     overall_expected_medians <- city_medians |>
       filter(grepl("verall", q_municipality)) |>
-      select(-q_municipality) |>
+      dplyr::select(item, median_item_price) |>
       dplyr::arrange(item) |>
       dplyr::mutate(
         median_item_price = dplyr::case_when(

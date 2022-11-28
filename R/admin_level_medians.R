@@ -43,8 +43,7 @@ admin_level_medians <- function(df,
         q_fuel_private_price_per_11kg
       ), na.rm = TRUE)) |>
       ungroup() |>
-      pivot_longer(-{{ admin_level_col }}, names_to = "item", values_to = "median_item_price") |>
-      inner_join(meb_weights, by = "item")
+      pivot_longer(-{{ admin_level_col }}, names_to = "item", values_to = "median_item_price")
   } else if (admin_level == "region") {
     ignored_municipalities <- c(
       "Abusliem",
@@ -70,7 +69,7 @@ admin_level_medians <- function(df,
       mutate(district_name_en = "Tripoli", q_region = "West (Tripolitania)")
 
     medians_df <- dplyr::bind_rows(base_medians_df, tripoli_medians) |>
-      group_by(q_region, group, item) |>
+      group_by(q_region, item) |>
       summarise(median_item_price = median(median_item_price, na.rm = TRUE)) |>
       ungroup()
   } else if (admin_level == "overall") {
@@ -92,7 +91,7 @@ admin_level_medians <- function(df,
       dplyr::rename(q_municipality = q_district)
 
     medians_df <- dplyr::bind_rows(base_medians_df, tripoli_medians) |>
-      group_by(group, item) |>
+      group_by(item) |>
       summarise(median_item_price = median(median_item_price, na.rm = TRUE)) |>
       ungroup()
   }
