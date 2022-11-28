@@ -4,14 +4,12 @@
 \alias{compute_meb_cost}
 \title{Compute the Cost of the MEB in Libya}
 \usage{
-compute_meb_cost(df, admin_level_col, item_group = NULL)
+compute_meb_cost(df, admin_level = "municipality")
 }
 \arguments{
 \item{df}{Monthly JMMI clean dataset}
 
-\item{admin_level_col}{a column name indicating a Libyan Administrative Level}
-
-\item{item_group}{Optional filter to limit the computation to a specific item group in the Minimum Expenditure Basket}
+\item{admin_level}{an administrative level in Libya, can be one of "municipality", "district", "region", or "overall"}
 }
 \value{
 A dataframe of the cost of MEB per Administrative Level
@@ -20,7 +18,7 @@ A dataframe of the cost of MEB per Administrative Level
 Compute the Cost of the MEB in Libya
 }
 \examples{
-compute_meb_cost(jmmi_2022_feb, q_region, "food")
-compute_meb_cost(jmmi_2022_feb, q_district, "hygiene")
-compute_meb_cost(jmmi_2022_feb, q_municipality)
+compute_meb_cost(jmmi_2022_feb, "region")
+compute_meb_cost(jmmi_2022_feb, "district")
+compute_meb_cost(jmmi_2022_feb, "municipality")
 }

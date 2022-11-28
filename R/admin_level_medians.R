@@ -81,7 +81,12 @@ admin_level_medians <- function(df,
     medians_df <- dplyr::bind_rows(base_medians_df, tripoli_medians) |>
       group_by(q_region, item) |>
       summarise(median_item_price = median(median_item_price, na.rm = TRUE)) |>
-      ungroup()
+      ungroup() |>
+      compute_fuel_median(
+        id_cols = admin_level_col,
+        names_from = "item",
+        values_from = "median_item_price"
+      )
   } else if (admin_level == "overall") {
     ignored_municipalities <- c(
       "Abusliem",

@@ -1,66 +1,68 @@
-get_expected_item_group <- function(item_group) {
-  if (item_group == "food") {
-    meb_group <- "food_meb_cost"
-  } else if (item_group == "hygiene") {
-    meb_group <- "nfi_meb_cost"
-  } else if (item_group == "cooking_fuel") {
-    meb_group <- "fuel_meb_cost"
-  }
-
-  meb_costs |>
-    dplyr::mutate(q_municipality = stringr::str_to_lower(q_municipality)) |>
-    dplyr::filter(
-      meb == meb_group,
-      q_municipality != "tripoli", # Tripoli is ignore because it is a composite of municipalities
-      stringr::str_detect(
-        q_municipality,
-        "median",
-        negate = TRUE
-      )
-    ) |>
-    dplyr::select(-all_of("meb")) |>
-    dplyr::rename(meb_cost = cost) |>
-    dplyr::arrange(q_municipality, meb_cost)
-}
-
-prepare_result <- function(df) {
-  df |>
-    dplyr::mutate(q_municipality = stringr::str_to_lower(q_municipality)) |>
-    dplyr::arrange(q_municipality, meb_cost)
-}
-
 test_that("meb computation with an item group matches expected", {
-  expected_food_group <- get_expected_item_group("food")
+  expected_meb_cost <- meb_costs |>
+    mutate(meb = dplyr::case_when(
+      grepl("food", meb) ~ "food",
+      grepl("nfi_", meb) ~ "hygiene",
+      grepl("fuel_", meb) ~ "cooking_fuel",
+      TRUE ~ meb
+    )) |>
+    dplyr::rename(
+      group = meb
+    )
 
-  food_result <- compute_meb_cost(
-    df = jmmi_2022_feb,
-    admin_level_col = q_municipality,
-    item_group = "food"
-  ) |>
-    prepare_result()
+  region_computed_meb_cost <- compute_meb_cost(jmmi_2022_feb, "region") |>
+    filter(!group %in% c("gasoline", "pharmaceutical")) |>
+    mutate(q_region = stringr::str_extract(q_region, "^\\w+")) |>
+    dplyr::arrange(q_region, group)
 
-  expect_equal(food_result, expected_food_group)
+  region_expected_meb_cost <- expected_meb_cost |>
+    filter(grepl("edian", q_municipality), group != "meb_cost") |>
+    dplyr::rename(q_region = q_municipality, meb_cost = cost) |>
+    mutate(q_region = stringr::str_extract(q_region, "\\w+$")) |>
+    dplyr::arrange(q_region, group)
 
-  expected_hygiene_group <- get_expected_item_group("hygiene")
+  expect_equal(
+    region_computed_meb_cost,
+    region_expected_meb_cost
+  )
+
+  tripoli_computed_meb_cost <- compute_meb_cost(jmmi_2022_feb, "district") |>
+    filter(!group %in% c("gasoline", "pharmaceutical"), q_district == "Tripoli") |>
+    mutate(q_district = tolower(q_district)) |>
+    dplyr::arrange(q_district, group)
 
 
-  hygiene_result <- compute_meb_cost(
-    df = jmmi_2022_feb,
-    admin_level_col = q_municipality,
-    item_group = "hygiene"
-  ) |>
-    prepare_result()
+  tripoli_expected_meb_cost <- expected_meb_cost |>
+    filter(
+      group != "meb_cost",
+      q_municipality == "Tripoli"
+    ) |>
+    mutate(q_municipality = tolower(q_municipality)) |>
+    dplyr::arrange(q_municipality, group) |>
+    dplyr::rename(meb_cost = cost, q_district = q_municipality)
 
-  expect_equal(hygiene_result, expected_hygiene_group)
+  expect_equal(
+    tripoli_computed_meb_cost,
+    tripoli_expected_meb_cost
+  )
 
-  expected_fuel_group <- get_expected_item_group("cooking_fuel")
+  municipalities_computed_meb_cost <- compute_meb_cost(jmmi_2022_feb, "municipality") |>
+    filter(!group %in% c("gasoline", "pharmaceutical")) |>
+    mutate(q_municipality = tolower(q_municipality)) |>
+    dplyr::arrange(q_municipality, group)
 
-  fuel_result <- compute_meb_cost(
-    df = jmmi_2022_feb,
-    admin_level_col = q_municipality,
-    item_group = "cooking_fuel"
-  ) |>
-    prepare_result()
+  municipalities_expected_meb_cost <- expected_meb_cost |>
+    filter(
+      !grepl("median", tolower(q_municipality)),
+      group != "meb_cost",
+      q_municipality != "Tripoli"
+    ) |>
+    mutate(q_municipality = tolower(q_municipality)) |>
+    dplyr::arrange(q_municipality, group) |>
+    dplyr::rename(meb_cost = cost)
 
-  expect_equal(fuel_result, expected_fuel_group)
+  expect_equal(
+    municipalities_computed_meb_cost,
+    municipalities_expected_meb_cost
+  )
 })

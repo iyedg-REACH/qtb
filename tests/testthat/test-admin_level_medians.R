@@ -59,6 +59,8 @@ test_that(
           item == "q_lsoap_price_per_kilo" & q_municipality == "West" ~ 5.5,
           item == "q_shampoo_price_per_250ml" & q_municipality == "West" ~ 5.365,
           item == "q_toothbrush_price_per_brush" & q_municipality == "West" ~ 2.125,
+          item == "cooking_fuel_price_per_11kg" & q_municipality == "East" ~ 16.875,
+          item == "cooking_fuel_price_per_11kg" & q_municipality == "West" ~ 12.125,
           TRUE ~ median_item_price
         )
       )
