@@ -9,7 +9,7 @@ admin_level_medians(df, admin_level = "municipality")
 \arguments{
 \item{df}{Monthly JMMI clean dataset}
 
-\item{admin_level}{an administrative level in Libya, can be one of "municipality", "district", or "region"}
+\item{admin_level}{an administrative level in Libya, can be one of "municipality", "district", "region", or "overall"}
 }
 \value{
 A dataframe with median prices for each item in the MEB per Administrative Level

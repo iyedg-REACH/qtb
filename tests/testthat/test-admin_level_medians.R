@@ -64,5 +64,27 @@ test_that(
       region_computed_medians,
       region_expected_medians
     )
+
+    overall_computed_medians <- admin_level_medians(jmmi_2022_feb, admin_level = "overall") |>
+      select(any_of(names(city_medians))) |>
+      dplyr::arrange(item)
+
+    overall_expected_medians <- city_medians |>
+      filter(grepl("verall", q_municipality)) |>
+      select(-q_municipality) |>
+      dplyr::arrange(item) |>
+      dplyr::mutate(
+        median_item_price = dplyr::case_when(
+          item == "q_lsoap_price_per_kilo" ~ 6.5,
+          item == "q_shampoo_price_per_250ml" ~ 5.9375,
+          item == "q_toothbrush_price_per_brush" ~ 2.375,
+          TRUE ~ median_item_price
+        )
+      )
+
+    expect_equal(
+      overall_computed_medians,
+      overall_expected_medians
+    )
   }
 )

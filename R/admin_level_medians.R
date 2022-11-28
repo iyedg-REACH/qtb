@@ -1,7 +1,7 @@
 #' Compute Median Prices per Administrative Level
 #'
 #' @param df Monthly JMMI clean dataset
-#' @param admin_level an administrative level in Libya, can be one of "municipality", "district", or "region"
+#' @param admin_level an administrative level in Libya, can be one of "municipality", "district", "region", or "overall"
 #'
 #' @return A dataframe with median prices for each item in the MEB per Administrative Level
 #'
@@ -13,7 +13,7 @@
 #' admin_level_medians(jmmi_2022_feb, "municipality")
 admin_level_medians <- function(df,
                                 admin_level = "municipality") {
-  admin_levels <- c("municipality", "district", "region")
+  admin_levels <- c("municipality", "district", "region", "overall")
   assertthat::assert_that(
     admin_level %in% admin_levels,
     msg = paste0("Invalid admin level, must be one of ", paste0(admin_levels, collapse = ", "))
@@ -71,6 +71,28 @@ admin_level_medians <- function(df,
 
     medians_df <- dplyr::bind_rows(base_medians_df, tripoli_medians) |>
       group_by(q_region, group, item) |>
+      summarise(median_item_price = median(median_item_price, na.rm = TRUE)) |>
+      ungroup()
+  } else if (admin_level == "overall") {
+    ignored_municipalities <- c(
+      "Abusliem",
+      "Ain Zara",
+      "Hai Alandalus",
+      "Suq Aljumaa",
+      "Tajoura",
+      "Tripoli Center"
+    )
+
+    # A recursive call to get municipality medians
+    base_medians_df <- admin_level_medians(df, admin_level = "municipality") |>
+      filter(!q_municipality %in% ignored_municipalities)
+
+    tripoli_medians <- admin_level_medians(df, "district") |>
+      dplyr::filter(q_district == "Tripoli") |>
+      dplyr::rename(q_municipality = q_district)
+
+    medians_df <- dplyr::bind_rows(base_medians_df, tripoli_medians) |>
+      group_by(group, item) |>
       summarise(median_item_price = median(median_item_price, na.rm = TRUE)) |>
       ungroup()
   }
