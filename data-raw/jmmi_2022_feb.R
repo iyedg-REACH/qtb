@@ -20,9 +20,9 @@ get_city_medians <- function(rows, cols, item_group) {
     rows = rows, cols = cols,
     na.strings = c("NA")
   ) |>
-    dplyr::rename(q_municipality = X1) |>
+    dplyr::rename(q_municipality = .data[["X1"]]) |>
     tidyr::pivot_longer(
-      cols = -q_municipality,
+      cols = -.data[["q_municipality"]],
       names_to = "item",
       values_to = "median_item_price", values_transform = as.numeric
     ) |>

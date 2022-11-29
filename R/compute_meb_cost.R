@@ -29,8 +29,8 @@ compute_meb_cost <- function(df, admin_level = "municipality") {
     )
 
   weighted_df |>
-    filter(stringr::str_detect(item, "q_fuel_", negate = TRUE)) |>
-    dplyr::group_by({{ admin_level_col }}, group) |>
+    filter(stringr::str_detect(.data[["item"]], "q_fuel_", negate = TRUE)) |>
+    dplyr::group_by({{ admin_level_col }}, .data[["group"]]) |>
     dplyr::summarise(meb_cost = sum(.data[["weighted_median_item_price"]], na.rm = TRUE)) |>
     dplyr::ungroup()
 }

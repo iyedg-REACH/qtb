@@ -49,16 +49,16 @@ admin_level_medians <- function(df,
 
     # A recursive call to get municipality medians
     base_medians_df <- admin_level_medians(df, admin_level = "municipality") |>
-      filter(!q_municipality %in% ignored_municipalities) |>
+      filter(!.data[["q_municipality"]] %in% ignored_municipalities) |>
       inner_join(lby_municipalities, by = c("q_municipality" = "municipality_name_en")) |>
       inner_join(lby_districts) |>
       inner_join(lby_regions) |>
-      select(-ends_with("_id"), -ends_with("_ar")) |>
-      dplyr::rename(q_region = region_name_en, q_district = district_name_en) # region is added in case the admin level is by region
+      select(-dplyr::ends_with("_id"), -dplyr::ends_with("_ar")) |>
+      dplyr::rename(q_region = .data[["region_name_en"]], q_district = .data[["district_name_en"]]) # region is added in case the admin level is by region
 
     tripoli_medians <- admin_level_medians(jmmi_2022_feb, "district") |>
-      dplyr::filter(q_district == "Tripoli") |>
-      dplyr::rename(q_municipality = q_district) |>
+      dplyr::filter(.data[["q_district"]] == "Tripoli") |>
+      dplyr::rename(q_municipality = .data[["q_district"]]) |>
       mutate(q_district = "Tripoli", q_region = "West (Tripolitania)")
 
     base_medians_df <- dplyr::bind_rows(base_medians_df, tripoli_medians) |>
@@ -73,13 +73,13 @@ admin_level_medians <- function(df,
   medians_df |>
     pivot_wider(
       id_cols = {{ admin_level_col }},
-      names_from = item,
-      values_from = median_item_price
+      names_from = .data[["item"]],
+      values_from = .data[["median_item_price"]]
     ) |>
     dplyr::rowwise() |>
     mutate(
       cooking_fuel_price_per_11kg = median(
-        c(q_fuel_public_price_per_11kg, q_fuel_private_price_per_11kg),
+        c(.data[["q_fuel_public_price_per_11kg"]], .data[["q_fuel_private_price_per_11kg"]]),
         na.rm = TRUE
       )
     ) |>
