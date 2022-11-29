@@ -23,19 +23,10 @@ test_that(
       dplyr::select(q_municipality, item, median_item_price) |>
       dplyr::arrange(q_municipality, item)
 
-    # This test contains manual corrections
     tripoli_expected_medians <- city_medians |>
       dplyr::filter(grepl("Tripoli$", q_municipality)) |>
       dplyr::select(q_municipality, item, median_item_price) |>
-      dplyr::arrange(q_municipality, item) |>
-      dplyr::mutate(
-        median_item_price = dplyr::case_when(
-          item == "q_lsoap_price_per_kilo" ~ 4.5,
-          item == "q_shampoo_price_per_250ml" ~ 5.875,
-          item == "q_toothbrush_price_per_brush" ~ 3.225,
-          TRUE ~ median_item_price
-        )
-      )
+      dplyr::arrange(q_municipality, item)
 
     expect_equal(
       tripoli_computed_medians,
@@ -48,22 +39,11 @@ test_that(
       dplyr::select(q_municipality, item, median_item_price) |>
       dplyr::arrange(q_municipality, item)
 
-
     region_expected_medians <- city_medians |>
       filter(grepl("edian", q_municipality)) |>
       mutate(q_municipality = stringr::str_extract(q_municipality, "\\w+$")) |>
       dplyr::select(q_municipality, item, median_item_price) |>
-      dplyr::arrange(q_municipality, item) |>
-      dplyr::mutate(
-        median_item_price = dplyr::case_when(
-          item == "q_lsoap_price_per_kilo" & q_municipality == "West" ~ 5.5,
-          item == "q_shampoo_price_per_250ml" & q_municipality == "West" ~ 5.365,
-          item == "q_toothbrush_price_per_brush" & q_municipality == "West" ~ 2.125,
-          item == "cooking_fuel_price_per_11kg" & q_municipality == "East" ~ 16.875,
-          item == "cooking_fuel_price_per_11kg" & q_municipality == "West" ~ 12.125,
-          TRUE ~ median_item_price
-        )
-      )
+      dplyr::arrange(q_municipality, item)
 
     expect_equal(
       region_computed_medians,
@@ -78,15 +58,7 @@ test_that(
     overall_expected_medians <- city_medians |>
       filter(grepl("verall", q_municipality)) |>
       dplyr::select(item, median_item_price) |>
-      dplyr::arrange(item) |>
-      dplyr::mutate(
-        median_item_price = dplyr::case_when(
-          item == "q_lsoap_price_per_kilo" ~ 6.5,
-          item == "q_shampoo_price_per_250ml" ~ 5.9375,
-          item == "q_toothbrush_price_per_brush" ~ 2.375,
-          TRUE ~ median_item_price
-        )
-      )
+      dplyr::arrange(item)
 
     expect_equal(
       overall_computed_medians,
