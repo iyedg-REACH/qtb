@@ -1,19 +1,3 @@
-compute_fuel_median <- function(df, id_cols, names_from, values_from) {
-  df |>
-    pivot_wider(id_cols = {{ id_cols }}, names_from = {{ names_from }}, values_from = {{ values_from }}) |>
-    dplyr::rowwise() |>
-    mutate(cooking_fuel_price_per_11kg = median(c(
-      q_fuel_public_price_per_11kg,
-      q_fuel_private_price_per_11kg
-    ), na.rm = TRUE)) |>
-    ungroup() |>
-    pivot_longer(
-      cols = -{{ id_cols }},
-      names_to = rlang::as_string({{ names_from }}),
-      values_to = rlang::as_string({{ values_from }})
-    )
-}
-
 #' Compute Median Prices per Administrative Level
 #'
 #' @param df Monthly JMMI clean dataset
@@ -38,12 +22,13 @@ admin_level_medians <- function(df,
   admin_level_col <- switch(admin_level,
     "municipality" = rlang::sym("q_municipality"),
     "district" = rlang::sym("q_district"),
-    "region" = rlang::sym("q_region")
+    "region" = rlang::sym("q_region"),
+    "overall" = rlang::sym("q_country")
   )
 
   ## The medians for municipalities and districts are computed based on
-  ## the non-summarized data. The medians for regions are computed based on
-  ## municipalities' medians
+  ## the non-summarized data. The medians for regions and overall medians
+  ## are computed based on municipalities' medians
 
   if (admin_level %in% c("municipality", "district")) {
     medians_df <- df |>
@@ -52,9 +37,7 @@ admin_level_medians <- function(df,
       group_by({{ admin_level_col }}, .data[["item"]]) |>
       summarise(median_item_price = median(.data[["price"]], na.rm = TRUE)) |>
       ungroup()
-    medians_df <- medians_df |>
-      compute_fuel_median(id_cols = admin_level_col, names_from = "item", values_from = "median_item_price")
-  } else if (admin_level == "region") {
+  } else {
     ignored_municipalities <- c(
       "Abusliem",
       "Ain Zara",
@@ -71,45 +54,38 @@ admin_level_medians <- function(df,
       inner_join(lby_districts) |>
       inner_join(lby_regions) |>
       select(-ends_with("_id"), -ends_with("_ar")) |>
-      dplyr::rename(q_region = region_name_en)
+      dplyr::rename(q_region = region_name_en, q_district = district_name_en) # region is added in case the admin level is by region
 
     tripoli_medians <- admin_level_medians(jmmi_2022_feb, "district") |>
       dplyr::filter(q_district == "Tripoli") |>
       dplyr::rename(q_municipality = q_district) |>
-      mutate(district_name_en = "Tripoli", q_region = "West (Tripolitania)")
+      mutate(q_district = "Tripoli", q_region = "West (Tripolitania)")
 
-    medians_df <- dplyr::bind_rows(base_medians_df, tripoli_medians) |>
-      group_by(q_region, item) |>
-      summarise(median_item_price = median(median_item_price, na.rm = TRUE)) |>
-      ungroup() |>
-      compute_fuel_median(
-        id_cols = admin_level_col,
-        names_from = "item",
-        values_from = "median_item_price"
-      )
-  } else if (admin_level == "overall") {
-    ignored_municipalities <- c(
-      "Abusliem",
-      "Ain Zara",
-      "Hai Alandalus",
-      "Suq Aljumaa",
-      "Tajoura",
-      "Tripoli Center"
-    )
+    base_medians_df <- dplyr::bind_rows(base_medians_df, tripoli_medians) |>
+      mutate(q_country = "Libya")
 
-    # A recursive call to get municipality medians
-    base_medians_df <- admin_level_medians(df, admin_level = "municipality") |>
-      filter(!q_municipality %in% ignored_municipalities)
-
-    tripoli_medians <- admin_level_medians(df, "district") |>
-      dplyr::filter(q_district == "Tripoli") |>
-      dplyr::rename(q_municipality = q_district)
-
-    medians_df <- dplyr::bind_rows(base_medians_df, tripoli_medians) |>
-      group_by(item) |>
-      summarise(median_item_price = median(median_item_price, na.rm = TRUE)) |>
+    medians_df <- base_medians_df |>
+      group_by({{ admin_level_col }}, .data[["item"]]) |>
+      summarise(median_item_price = median(.data[["median_item_price"]], na.rm = TRUE)) |>
       ungroup()
   }
 
-  return(medians_df)
+  medians_df |>
+    pivot_wider(
+      id_cols = {{ admin_level_col }},
+      names_from = item,
+      values_from = median_item_price
+    ) |>
+    dplyr::rowwise() |>
+    mutate(
+      cooking_fuel_price_per_11kg = median(
+        c(q_fuel_public_price_per_11kg, q_fuel_private_price_per_11kg),
+        na.rm = TRUE
+      )
+    ) |>
+    pivot_longer(
+      cols = -{{ admin_level_col }},
+      names_to = "item",
+      values_to = "median_item_price"
+    )
 }
