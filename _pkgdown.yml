@@ -11,3 +11,8 @@ reference:
   - meb_weights
   - jmmi_2022_feb
   - starts_with("lby")
+  - tracked_municipalities
+- title: "Misc"
+  desc: "Functions for reading and writing Spark DataFrames."
+  contents:
+  - apply_cleaning_log

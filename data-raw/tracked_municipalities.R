@@ -1,0 +1,48 @@
+tracked_municipalities <- c(
+  "Abusliem",
+  "Ain Zara",
+  "Al Aziziya",
+  "AlKhums",
+  "Ashshgega",
+  "Azzawya",
+  "Bani Waleed",
+  "Ghadamis",
+  "Ghiryan",
+  "Hai Alandalus",
+  "Janzour",
+  "Misrata",
+  "Msallata",
+  "Nalut",
+  "Qasr Bin Ghasheer",
+  "Sabratha",
+  "Sirt",
+  "Suq Aljumaa",
+  "Tajoura",
+  "Tarhuna",
+  "Tripoli Center",
+  "Tripoli",
+  "Yefren",
+  "Azzintan",
+  "Zliten",
+  "Zwara",
+  "Ejdabia",
+  "AlBayda",
+  "AlKufra",
+  "AlMarj",
+  "Benghazi",
+  "Derna",
+  "Tobruk",
+  "Algatroun",
+  "AlJufra",
+  "Brak",
+  "Ghat",
+  "Murzuq",
+  "Sebha",
+  "Ubari",
+  "Wadi Etba"
+) |>
+  stringr::str_to_title() |>
+  tibble::as_tibble_col(column_name = "municipality_name_en") |>
+  dplyr::mutate(position = dplyr::row_number())
+
+usethis::use_data(tracked_municipalities, overwrite = TRUE)

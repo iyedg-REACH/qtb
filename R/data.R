@@ -67,3 +67,16 @@
 #' }
 #' @source \url{reach}
 "lby_regions"
+
+
+
+#' Tracked Municipalities
+#'
+#' The list of municipalities where data collection
+#' usually occurs.
+#'
+#' \describe{
+#'   \item{municipality_name_en}{The Municipality's name in English}
+#'   \item{position}{A helper attribute indicating the position of the Municipality in table reports}
+#' }
+"tracked_municipalities"
