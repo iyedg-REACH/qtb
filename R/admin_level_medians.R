@@ -1,5 +1,8 @@
 #' Compute Median Prices per Administrative Level
 #'
+#' @description
+#' `r lifecycle::badge("experimental")`
+#'
 #' @param df Monthly JMMI clean dataset
 #' @param admin_level an administrative level in Libya, can be one of "municipality", "district", "region", or "overall"
 #'

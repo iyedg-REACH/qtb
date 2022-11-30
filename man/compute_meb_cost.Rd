@@ -15,7 +15,7 @@ compute_meb_cost(df, admin_level = "municipality")
 A dataframe of the cost of MEB per Administrative Level
 }
 \description{
-Compute the Cost of the MEB in Libya
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
 \examples{
 compute_meb_cost(jmmi_2022_feb, "region")

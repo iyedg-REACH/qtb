@@ -13,6 +13,7 @@ Imports:
     assertthat,
     dplyr,
     here,
+    lifecycle,
     rlang,
     stringr,
     tibble,

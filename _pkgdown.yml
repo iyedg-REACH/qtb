@@ -13,6 +13,6 @@ reference:
   - starts_with("lby")
   - tracked_municipalities
 - title: "Misc"
-  desc: "Functions for reading and writing Spark DataFrames."
+  desc: "General Utilities"
   contents:
   - apply_cleaning_log

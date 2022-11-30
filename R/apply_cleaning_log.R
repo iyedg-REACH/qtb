@@ -1,3 +1,17 @@
+#' Apply a cleaning log to a data frame
+#'
+#' @description
+#' `r lifecycle::badge("experimental")`
+#'
+#' @param df
+#' @param df_values_col
+#' @param cleaning_log_df
+#' @param cleaning_log_values_col
+#' @param by
+#' @param ...
+#'
+#' @return
+#' @export
 apply_cleaning_log <- function(df,
                                df_values_col,
                                cleaning_log_df,

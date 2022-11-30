@@ -1,5 +1,8 @@
 #' Compute the Cost of the MEB in Libya
 #'
+#' @description
+#' `r lifecycle::badge("experimental")`
+#'
 #' @param df Monthly JMMI clean dataset
 #' @param admin_level an administrative level in Libya, can be one of "municipality", "district", "region", or "overall"
 #'

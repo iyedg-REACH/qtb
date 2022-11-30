@@ -2,9 +2,10 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @importFrom rlang .data `:=`
 #' @importFrom dplyr select mutate group_by ungroup pull filter summarise inner_join
-#' @importFrom tidyr pivot_longer pivot_wider
+#' @importFrom lifecycle deprecated
+#' @importFrom rlang .data `:=`
 #' @importFrom stats median
+#' @importFrom tidyr pivot_longer pivot_wider
 ## usethis namespace: end
 NULL

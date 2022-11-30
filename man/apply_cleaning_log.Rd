@@ -17,5 +17,5 @@ apply_cleaning_log(
 \item{...}{}
 }
 \description{
-Apply a cleaning log to a data frame
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

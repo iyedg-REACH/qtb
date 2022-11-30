@@ -15,7 +15,7 @@ admin_level_medians(df, admin_level = "municipality")
 A dataframe with median prices for each item in the MEB per Administrative Level
 }
 \description{
-Compute Median Prices per Administrative Level
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
 \examples{
 admin_level_medians(jmmi_2022_feb, "region")
