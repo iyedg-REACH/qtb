@@ -14,6 +14,6 @@ An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) w
 jmmi_2022_feb
 }
 \description{
-The cleaned dataset for February 2022 JMMI
+The clean dataset for February 2022 JMMI
 }
 \keyword{datasets}

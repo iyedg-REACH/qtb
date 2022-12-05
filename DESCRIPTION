@@ -12,6 +12,7 @@ LazyData: true
 Imports: 
     assertthat,
     dplyr,
+    ggplot2,
     here,
     lifecycle,
     rlang,
