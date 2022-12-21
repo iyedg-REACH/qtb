@@ -7,5 +7,6 @@
 #' @importFrom rlang .data `:=`
 #' @importFrom stats median
 #' @importFrom tidyr pivot_longer pivot_wider
+#' @importFrom ggplot2 ggplot aes
 ## usethis namespace: end
 NULL
