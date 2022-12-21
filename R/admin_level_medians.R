@@ -35,7 +35,7 @@ admin_level_medians <- function(df,
 
   if (admin_level %in% c("municipality", "district")) {
     medians_df <- df |>
-      select({{ admin_level_col }}, pull(meb_weights, .data[["item"]])) |>
+      select({{ admin_level_col }}, pull(meb_weights, "item")) |>
       pivot_longer(-{{ admin_level_col }}, names_to = "item", values_to = "price") |>
       group_by({{ admin_level_col }}, .data[["item"]]) |>
       summarise(median_item_price = median(.data[["price"]], na.rm = TRUE)) |>
@@ -57,11 +57,14 @@ admin_level_medians <- function(df,
       inner_join(lby_districts) |>
       inner_join(lby_regions) |>
       select(-dplyr::ends_with("_id"), -dplyr::ends_with("_ar")) |>
-      dplyr::rename(q_region = .data[["region_name_en"]], q_district = .data[["district_name_en"]]) # region is added in case the admin level is by region
+      dplyr::rename(
+        q_region = "region_name_en",
+        q_district = "district_name_en"
+      ) # region is added in case the admin level is by region
 
     tripoli_medians <- admin_level_medians(jmmi_2022_feb, "district") |>
       dplyr::filter(.data[["q_district"]] == "Tripoli") |>
-      dplyr::rename(q_municipality = .data[["q_district"]]) |>
+      dplyr::rename(q_municipality = "q_district") |>
       mutate(q_district = "Tripoli", q_region = "West (Tripolitania)")
 
     base_medians_df <- dplyr::bind_rows(base_medians_df, tripoli_medians) |>
@@ -76,8 +79,8 @@ admin_level_medians <- function(df,
   medians_df |>
     pivot_wider(
       id_cols = {{ admin_level_col }},
-      names_from = .data[["item"]],
-      values_from = .data[["median_item_price"]]
+      names_from = "item",
+      values_from = "median_item_price"
     ) |>
     dplyr::rowwise() |>
     mutate(
