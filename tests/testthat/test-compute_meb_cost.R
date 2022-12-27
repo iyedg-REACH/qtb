@@ -1,5 +1,5 @@
 test_that("meb computation with an item group matches expected", {
-  expected_meb_cost <- meb_costs |>
+  expected_meb_cost <- meb_costs_feb |>
     mutate(meb = dplyr::case_when(
       grepl("food", meb) ~ "food",
       grepl("nfi_", meb) ~ "hygiene",

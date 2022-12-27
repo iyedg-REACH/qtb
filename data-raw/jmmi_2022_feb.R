@@ -20,9 +20,9 @@ get_city_medians <- function(rows, cols, item_group) {
     rows = rows, cols = cols,
     na.strings = c("NA")
   ) |>
-    dplyr::rename(q_municipality = .data[["X1"]]) |>
+    dplyr::rename(q_municipality = "X1") |>
     tidyr::pivot_longer(
-      cols = -.data[["q_municipality"]],
+      cols = -"q_municipality",
       names_to = "item",
       values_to = "median_item_price", values_transform = as.numeric
     ) |>
@@ -65,7 +65,7 @@ city_medians_cooking_fuel <- get_city_medians(rows = 110:154, cols = 1:4, item_g
 city_medians_pharmaceutical <- get_city_medians(rows = 162:206, cols = 1:6, item_group = "pharmaceutical")
 city_medians_gasoline <- get_city_medians(rows = 214:258, cols = 1:3, item_group = "gasoline")
 
-city_medians <- dplyr::bind_rows(
+city_medians_feb <- dplyr::bind_rows(
   city_medians_food,
   city_medians_hygiene,
   city_medians_cooking_fuel,
@@ -73,7 +73,7 @@ city_medians <- dplyr::bind_rows(
   city_medians_gasoline
 )
 
-meb_costs <- openxlsx::read.xlsx(jmmi_2022_feb_file,
+meb_costs_feb <- openxlsx::read.xlsx(jmmi_2022_feb_file,
   sheet = "Cost of MEB",
   na.strings = c("NA")
 ) |>
@@ -96,8 +96,8 @@ meb_costs <- openxlsx::read.xlsx(jmmi_2022_feb_file,
   tidyr::pivot_longer(-q_municipality, names_to = "meb", values_to = "cost")
 
 usethis::use_data(
-  meb_costs,
-  city_medians,
+  meb_costs_feb,
+  city_medians_feb,
   internal = TRUE,
   overwrite = TRUE
 )
