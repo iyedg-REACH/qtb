@@ -26,7 +26,7 @@ compute_meb_cost <- function(df, admin_level = "municipality") {
   )
 
   weighted_df <- medians_df |>
-    inner_join(meb_weights, by = "item") |>
+    inner_join(qtb::meb_weights, by = "item") |>
     mutate(
       weighted_median_item_price = .data[["median_item_price"]] * .data[["weight"]]
     )

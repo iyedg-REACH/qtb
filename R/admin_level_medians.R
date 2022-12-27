@@ -35,7 +35,7 @@ admin_level_medians <- function(df,
 
   if (admin_level %in% c("municipality", "district")) {
     medians_df <- df |>
-      select({{ admin_level_col }}, pull(meb_weights, "item")) |>
+      select({{ admin_level_col }}, pull(qtb::meb_weights, "item")) |>
       pivot_longer(-{{ admin_level_col }}, names_to = "item", values_to = "price") |>
       group_by({{ admin_level_col }}, .data[["item"]]) |>
       summarise(median_item_price = median(.data[["price"]], na.rm = TRUE)) |>
@@ -53,9 +53,9 @@ admin_level_medians <- function(df,
     # A recursive call to get municipality medians
     base_medians_df <- admin_level_medians(df, admin_level = "municipality") |>
       filter(!.data[["q_municipality"]] %in% ignored_municipalities) |>
-      inner_join(lby_municipalities, by = c("q_municipality" = "municipality_name_en")) |>
-      inner_join(lby_districts, by = c("region_id", "district_id")) |>
-      inner_join(lby_regions, by = c("region_id")) |>
+      inner_join(qtb::lby_municipalities, by = c("q_municipality" = "municipality_name_en")) |>
+      inner_join(qtb::lby_districts, by = c("region_id", "district_id")) |>
+      inner_join(qtb::lby_regions, by = c("region_id")) |>
       select(-dplyr::ends_with("_id"), -dplyr::ends_with("_ar")) |>
       dplyr::rename(
         q_region = "region_name_en",
