@@ -62,7 +62,7 @@ admin_level_medians <- function(df,
         q_district = "district_name_en"
       ) # region is added in case the admin level is by region
 
-    tripoli_medians <- admin_level_medians(jmmi_2022_feb, "district") |>
+    tripoli_medians <- admin_level_medians(df, "district") |>
       dplyr::filter(.data[["q_district"]] == "Tripoli") |>
       dplyr::rename(q_municipality = "q_district") |>
       mutate(q_district = "Tripoli", q_region = "West (Tripolitania)")
