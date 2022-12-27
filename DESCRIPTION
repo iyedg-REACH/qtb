@@ -1,7 +1,7 @@
 Package: qtb
 Type: Package
 Title: The MEB Toolkit for REACH's Libya Mission
-Version: 0.1.1.9000
+Version: 0.1.2
 Author: Iyed Ghedamsi
 Maintainer: Iyed Ghedamsi <iyed.ghedamsi@reach-initiative.org>
 Description: A toolkit for computing the cost of a Minimum Expenditure Basket
