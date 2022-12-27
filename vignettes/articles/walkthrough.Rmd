@@ -1,0 +1,106 @@
+---
+title: "JMMI reporting Walkthrough"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(qtb)
+library(tidyr)
+library(dplyr, warn.conflicts = FALSE)
+library(gt)
+```
+
+## Reporting City Medians
+### Municipalities
+
+```{r}
+municipality_medians <- admin_level_medians(jmmi_2022_feb, admin_level = "municipality") |>
+  inner_join(meb_weights)
+```
+```{r}
+municipality_medians |>
+  filter(group == "food", weight > 0) |>
+  tidyr::pivot_wider(
+    id_cols = q_municipality,
+    names_from = label, values_from = median_item_price
+  ) |>
+  gt() |>
+  fmt_currency(
+    -q_municipality,
+    currency = "LYD"
+  ) |>
+  data_color(
+    -q_municipality,
+    colors = paletteer::paletteer_d("rcartocolor::Temps") |> as.character()
+  )
+```
+
+
+
+## Regions
+
+```{r}
+region_medians <- admin_level_medians(jmmi_2022_feb, "region") |>
+  inner_join(meb_weights, by = "item") |>
+  filter(group == "food", weight > 0)
+```
+
+```{r}
+region_medians |>
+  tidyr::pivot_wider(
+    id_cols = q_region,
+    names_from = label, values_from = median_item_price
+  ) |>
+  gt() |>
+  fmt_currency(
+    -q_region,
+    currency = "LYD"
+  ) |>
+  data_color(
+    -q_region,
+    colors = paletteer::paletteer_d("rcartocolor::Temps") |> as.character()
+  )
+```
+
+## Reporting MEB costs
+### Municipalities
+
+```{r}
+compute_meb_cost(jmmi_2022_feb, admin_level = "municipality") |>
+  filter(meb_cost > 0) |>
+  pivot_wider(id_cols = q_municipality, names_from = group, values_from = meb_cost) |>
+  gt() |>
+  fmt_currency(
+    -q_municipality,
+    currency = "LYD"
+  ) |>
+  data_color(
+    -q_municipality,
+    colors = paletteer::paletteer_d("rcartocolor::Temps") |> as.character()
+  )
+```
+
+
+### Regions
+
+```{r}
+compute_meb_cost(jmmi_2022_feb, admin_level = "region") |>
+  filter(meb_cost > 0) |>
+  pivot_wider(id_cols = q_region, names_from = group, values_from = meb_cost) |>
+  gt() |>
+  fmt_currency(
+    -q_region,
+    currency = "LYD"
+  ) |>
+  data_color(
+    -q_region,
+    colors = paletteer::paletteer_d("rcartocolor::Temps") |> as.character()
+  )
+```
+
