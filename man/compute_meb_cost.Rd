@@ -4,12 +4,14 @@
 \alias{compute_meb_cost}
 \title{Compute the Cost of the MEB in Libya}
 \usage{
-compute_meb_cost(df, admin_level = "municipality")
+compute_meb_cost(df, admin_level = "municipality", precision = 3)
 }
 \arguments{
 \item{df}{Monthly JMMI clean dataset}
 
 \item{admin_level}{an administrative level in Libya, can be one of "municipality", "district", "region", or "overall"}
+
+\item{precision}{The number of decimal places to keep when rounding results}
 }
 \value{
 A dataframe of the cost of MEB per Administrative Level

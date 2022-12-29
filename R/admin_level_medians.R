@@ -5,6 +5,7 @@
 #'
 #' @param df Monthly JMMI clean dataset
 #' @param admin_level an administrative level in Libya, can be one of "municipality", "district", "region", or "overall"
+#' @param precision The number of decimal places to keep when rounding results
 #'
 #' @return A dataframe with median prices for each item in the MEB per Administrative Level
 #'
@@ -15,7 +16,8 @@
 #' admin_level_medians(jmmi_2022_feb, "district")
 #' admin_level_medians(jmmi_2022_feb, "municipality")
 admin_level_medians <- function(df,
-                                admin_level = "municipality") {
+                                admin_level = "municipality",
+                                precision = 3) {
   admin_levels <- c("municipality", "district", "region", "overall")
   assertthat::assert_that(
     admin_level %in% admin_levels,
@@ -93,5 +95,6 @@ admin_level_medians <- function(df,
       cols = -{{ admin_level_col }},
       names_to = "item",
       values_to = "median_item_price"
-    )
+    ) |>
+    mutate(median_item_price = round(median_item_price, digits = precision))
 }

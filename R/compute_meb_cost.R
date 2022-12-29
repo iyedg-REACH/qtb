@@ -5,6 +5,7 @@
 #'
 #' @param df Monthly JMMI clean dataset
 #' @param admin_level an administrative level in Libya, can be one of "municipality", "district", "region", or "overall"
+#' @param precision The number of decimal places to keep when rounding results
 #'
 #' @return A dataframe of the cost of MEB per Administrative Level
 #' @export
@@ -13,7 +14,7 @@
 #' compute_meb_cost(jmmi_2022_feb, "region")
 #' compute_meb_cost(jmmi_2022_feb, "district")
 #' compute_meb_cost(jmmi_2022_feb, "municipality")
-compute_meb_cost <- function(df, admin_level = "municipality") {
+compute_meb_cost <- function(df, admin_level = "municipality", precision = 3) {
   admin_level_col <- switch(admin_level,
     "municipality" = rlang::sym("q_municipality"),
     "district" = rlang::sym("q_district"),
@@ -22,7 +23,8 @@ compute_meb_cost <- function(df, admin_level = "municipality") {
 
   medians_df <- admin_level_medians(
     df,
-    admin_level
+    admin_level,
+    precision = precision
   )
 
   weighted_df <- medians_df |>

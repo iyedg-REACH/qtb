@@ -4,12 +4,14 @@
 \alias{admin_level_medians}
 \title{Compute Median Prices per Administrative Level}
 \usage{
-admin_level_medians(df, admin_level = "municipality")
+admin_level_medians(df, admin_level = "municipality", precision = 3)
 }
 \arguments{
 \item{df}{Monthly JMMI clean dataset}
 
 \item{admin_level}{an administrative level in Libya, can be one of "municipality", "district", "region", or "overall"}
+
+\item{precision}{The number of decimal places to keep when rounding results}
 }
 \value{
 A dataframe with median prices for each item in the MEB per Administrative Level

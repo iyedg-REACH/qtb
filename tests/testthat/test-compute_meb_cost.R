@@ -10,7 +10,7 @@ test_that("meb computation with an item group matches expected", {
       group = meb
     )
 
-  region_computed_meb_cost <- compute_meb_cost(jmmi_2022_feb, "region") |>
+  region_computed_meb_cost <- compute_meb_cost(jmmi_2022_feb, "region", precision = 5) |>
     filter(!group %in% c("gasoline", "pharmaceutical")) |>
     mutate(q_region = stringr::str_extract(q_region, "^\\w+")) |>
     dplyr::arrange(q_region, group)
@@ -26,7 +26,7 @@ test_that("meb computation with an item group matches expected", {
     region_expected_meb_cost
   )
 
-  tripoli_computed_meb_cost <- compute_meb_cost(jmmi_2022_feb, "district") |>
+  tripoli_computed_meb_cost <- compute_meb_cost(jmmi_2022_feb, "district", precision = 5) |>
     filter(!group %in% c("gasoline", "pharmaceutical"), q_district == "Tripoli") |>
     mutate(q_district = tolower(q_district)) |>
     dplyr::arrange(q_district, group)
@@ -46,7 +46,7 @@ test_that("meb computation with an item group matches expected", {
     tripoli_expected_meb_cost
   )
 
-  municipalities_computed_meb_cost <- compute_meb_cost(jmmi_2022_feb, "municipality") |>
+  municipalities_computed_meb_cost <- compute_meb_cost(jmmi_2022_feb, "municipality", precision = 6) |>
     filter(!group %in% c("gasoline", "pharmaceutical")) |>
     mutate(q_municipality = tolower(q_municipality)) |>
     dplyr::arrange(q_municipality, group)

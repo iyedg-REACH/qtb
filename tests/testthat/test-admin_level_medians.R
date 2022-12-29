@@ -1,7 +1,7 @@
 test_that(
   "computed medians match expected medians",
   {
-    municipality_computed_medians <- admin_level_medians(jmmi_2022_feb, "municipality") |>
+    municipality_computed_medians <- admin_level_medians(jmmi_2022_feb, "municipality", precision = 6) |>
       dplyr::mutate(q_municipality = tolower(q_municipality)) |>
       dplyr::select(q_municipality, item, median_item_price) |>
       dplyr::arrange(q_municipality, item)
@@ -17,7 +17,7 @@ test_that(
       municipality_expected_medians
     )
 
-    tripoli_computed_medians <- admin_level_medians(jmmi_2022_feb, "district") |>
+    tripoli_computed_medians <- admin_level_medians(jmmi_2022_feb, "district", precision = 6) |>
       dplyr::filter(q_district == "Tripoli") |>
       dplyr::rename(q_municipality = q_district) |>
       dplyr::select(q_municipality, item, median_item_price) |>
@@ -33,7 +33,7 @@ test_that(
       tripoli_expected_medians
     )
 
-    region_computed_medians <- admin_level_medians(jmmi_2022_feb, "region") |>
+    region_computed_medians <- admin_level_medians(jmmi_2022_feb, "region", precision = 6) |>
       dplyr::rename(q_municipality = q_region) |>
       mutate(q_municipality = stringr::str_extract(q_municipality, "^\\w+")) |>
       dplyr::select(q_municipality, item, median_item_price) |>
@@ -50,7 +50,7 @@ test_that(
       region_expected_medians
     )
 
-    overall_computed_medians <- admin_level_medians(jmmi_2022_feb, admin_level = "overall") |>
+    overall_computed_medians <- admin_level_medians(jmmi_2022_feb, admin_level = "overall", precision = 6) |>
       select(any_of(names(city_medians_feb))) |>
       dplyr::select(item, median_item_price) |>
       dplyr::arrange(item)
