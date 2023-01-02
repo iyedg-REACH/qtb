@@ -9,6 +9,7 @@ reference:
 - title: "Datasets"
   contents:
   - meb_weights
+  - jmmi_2022_jan
   - jmmi_2022_feb
   - starts_with("lby")
   - tracked_municipalities
