@@ -8,4 +8,11 @@
 \description{
 A toolkit for computing the cost of a Minimum Expenditure Basket (MEB) under the Joint Market Monitoring Initiative (JMMI) of REACH in Libya.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://iyedg-reach.github.io/qtb/}
+}
+
+}
 \keyword{internal}

@@ -1,19 +1,19 @@
-url: ~
+url: https://iyedg-reach.github.io/qtb/
 template:
   bootstrap: 5
 reference:
-- title: "MEB Computations Functions"
+- title: MEB Computations Functions
   contents:
   - contains("medians")
   - contains("_meb_")
-- title: "Datasets"
+- title: Datasets
   contents:
   - meb_weights
   - jmmi_2022_jan
   - jmmi_2022_feb
   - starts_with("lby")
   - tracked_municipalities
-- title: "Misc"
-  desc: "General Utilities"
-  contents:
-  - apply_cleaning_log
+- title: Misc
+  desc: General Utilities
+  contents: apply_cleaning_log
+
