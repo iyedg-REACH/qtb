@@ -11,12 +11,19 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     assertthat,
+    cli,
     dplyr,
+    fs,
     ggplot2,
+    glue,
     here,
     lifecycle,
+    qs,
+    quiveR (>= 0.0.0.9005),
     rlang,
     stringr,
+    tarchetypes,
+    targets,
     tibble,
     tidyr
 Suggests: 
@@ -30,3 +37,5 @@ RoxygenNote: 7.2.3
 Depends: 
     R (>= 2.10)
 URL: https://iyedg-reach.github.io/qtb/
+Remotes: 
+    iyedg-REACH/quiveR
