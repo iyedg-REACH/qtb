@@ -40,6 +40,16 @@ library(qtb)
 ## basic example code
 ```
 
+## Roadmap
+
+- Weights and Tracked municipalities should be part of user-provided
+  data
+- variations calculations and boxplots
+- Generate tools from a question bank:
+  - Option to add cash questions
+  - Options to manipulate the municipalities with restrictions on where
+    enumerators collect data
+
 [^1]: <https://web.archive.org/web/20060808074330/http://acacialand.com/fawzi.html>
 
 [^2]: <https://www.britannica.com/topic/Arabian-religion/Pre-Islamic-deities>
