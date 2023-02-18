@@ -23,4 +23,5 @@ A dataframe with median prices for each item in the MEB per Administrative Level
 admin_level_medians(jmmi_2022_feb, "region")
 admin_level_medians(jmmi_2022_feb, "district")
 admin_level_medians(jmmi_2022_feb, "municipality")
+admin_level_medians(jmmi_2022_feb, "overall")
 }

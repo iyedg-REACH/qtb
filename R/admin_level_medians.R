@@ -15,6 +15,7 @@
 #' admin_level_medians(jmmi_2022_feb, "region")
 #' admin_level_medians(jmmi_2022_feb, "district")
 #' admin_level_medians(jmmi_2022_feb, "municipality")
+#' admin_level_medians(jmmi_2022_feb, "overall")
 admin_level_medians <- function(df,
                                 admin_level = "municipality",
                                 precision = 3) {
