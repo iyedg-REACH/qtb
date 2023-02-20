@@ -34,6 +34,9 @@ pipeline <- function(period,
   tar_name_augmented_data_extract <- paste0(base_target_name, "_augmented_data_extract")
   tar_name_augmented_logbook <- paste0(base_target_name, "_augmented_logbook")
   tar_name_augmented_deletion_log <- paste0(base_target_name, "_augmented_deletion_log")
+  tar_name_augmented_data <- paste0(base_target_name, "_augmented_data")
+
+  tar_name_cleaning_log_output <- paste0(base_target_name, "_cleaning_log_output")
 
   augmented_targets <- list(
     tar_target_raw(
@@ -74,6 +77,35 @@ pipeline <- function(period,
       command = substitute(
         deletion_log,
         env = list(deletion_log = as.symbol(tar_name_deletion_log))
+      )
+    ),
+    tar_target_raw(
+      name = tar_name_augmented_data,
+      command = substitute(
+        augment_data(
+          raw_data, augmented_logbook, augmented_deletion_log
+        ),
+        env = list(
+          raw_data = as.symbol(tar_name_data),
+          augmented_logbook = as.symbol(tar_name_augmented_logbook),
+          augmented_deletion_log = as.symbol(tar_name_augmented_deletion_log)
+        )
+      )
+    ),
+    tar_target_raw(
+      name = tar_name_cleaning_log_output,
+      command = substitute(
+        write_cleaning_log(
+          wb, raw_data,
+          clean_data,
+          base_path
+        ),
+        env = list(
+          wb = as.symbol(tar_name_cleanin_log_wb),
+          raw_data = as.symbol(tar_name_data),
+          clean_data = as.symbol(tar_name_augmented_data),
+          base_path = base_path
+        )
       )
     )
   )
