@@ -96,16 +96,19 @@ pipeline <- function(period,
       name = tar_name_cleaning_log_output,
       command = substitute(
         write_cleaning_log(
-          wb, raw_data,
-          clean_data,
-          data_extract,
-          base_path
+          wb,
+          raw_data = raw_data,
+          clean_data = clean_data,
+          data_extract = data_extract,
+          base_path = base_path,
+          logbook = logbook
         ),
         env = list(
           wb = as.symbol(tar_name_cleanin_log_wb),
           raw_data = as.symbol(tar_name_data),
           clean_data = as.symbol(tar_name_augmented_data),
           data_extract = as.symbol(tar_name_augmented_data_extract),
+          logbook = as.symbol(tar_name_augmented_logbook),
           base_path = base_path
         )
       )

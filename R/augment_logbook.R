@@ -25,6 +25,7 @@ augment_logbook <- function(raw_data, logbook) {
     raw_data,
     dplyr::all_of(completion_columns)
   ) |>
+    dplyr::mutate(changed = "Yes") |>
     dplyr::rename(
       `device ID` = deviceid,
       `Enumerator ID` = q_name
@@ -39,6 +40,7 @@ augment_logbook <- function(raw_data, logbook) {
       "Issue",
       "Type of Issue",
       "feedback",
+      "changed",
       "old.value",
       "new.value"
     )
