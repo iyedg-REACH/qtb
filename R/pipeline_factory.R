@@ -98,12 +98,14 @@ pipeline <- function(period,
         write_cleaning_log(
           wb, raw_data,
           clean_data,
+          data_extract,
           base_path
         ),
         env = list(
           wb = as.symbol(tar_name_cleanin_log_wb),
           raw_data = as.symbol(tar_name_data),
           clean_data = as.symbol(tar_name_augmented_data),
+          data_extract = as.symbol(tar_name_augmented_data_extract),
           base_path = base_path
         )
       )
@@ -147,9 +149,6 @@ pipeline <- function(period,
   )
 
   base_path <- fs::path_abs(base_path)
-  cli::cli_alert_info(
-    here::here(base_path, "report/report.qmd")
-  )
 
   kobo_target <- tar_target_raw(
     name = paste0(base_target_name, "_raw"),
