@@ -46,8 +46,11 @@ pipeline <- function(period,
     tar_target_raw(
       name = tar_name_augmented_data_extract,
       command = substitute(
-        data_extract,
-        env = list(data_extract = as.symbol(tar_name_data_extract))
+        augment_data_extract(raw_data, data_extract),
+        env = list(
+          raw_data = as.symbol(tar_name_data),
+          data_extract = as.symbol(tar_name_data_extract)
+        )
       )
     ),
     tar_target_raw(
