@@ -11,14 +11,19 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     assertthat,
+    cleaninginspectoR (>= 0.0.0.9000),
     cli,
     dplyr,
+    DT,
     fs,
     ggplot2,
     glue,
+    gt,
     here,
+    leaflet,
     lifecycle,
     qs,
+    quarto,
     quiveR (>= 0.0.0.9005),
     rlang,
     stringr,
@@ -27,7 +32,6 @@ Imports:
     tibble,
     tidyr
 Suggests: 
-    gt,
     paletteer,
     rmarkdown,
     testthat (>= 3.0.0)
@@ -38,4 +42,5 @@ Depends:
     R (>= 2.10)
 URL: https://iyedg-reach.github.io/qtb/
 Remotes: 
-    iyedg-REACH/quiveR
+    iyedg-REACH/quiveR,
+    impact-initiatives/cleaninginspectoR
