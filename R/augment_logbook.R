@@ -1,4 +1,4 @@
-complete_logbook <- function(raw_data, logbook) {
+augment_logbook <- function(raw_data, logbook) {
   necessary_columns <- c(
     "uuid",
     "question.name",
@@ -39,6 +39,7 @@ complete_logbook <- function(raw_data, logbook) {
       "Issue",
       "Type of Issue",
       "feedback",
-      "old.value", "new.value"
+      "old.value",
+      "new.value"
     )
 }

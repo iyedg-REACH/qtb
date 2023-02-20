@@ -39,8 +39,14 @@ pipeline <- function(period,
     tar_target_raw(
       name = tar_name_augmented_summary,
       command = substitute(
-        summary,
-        env = list(summary = as.symbol(tar_name_summary))
+        augment_summary(
+          raw_data,
+          summary
+        ),
+        env = list(
+          raw_data = as.symbol(tar_name_data),
+          summary = as.symbol(tar_name_summary)
+        )
       )
     ),
     tar_target_raw(
@@ -56,8 +62,11 @@ pipeline <- function(period,
     tar_target_raw(
       name = tar_name_augmented_logbook,
       command = substitute(
-        logbook,
-        env = list(logbook = as.symbol(tar_name_logbook))
+        augment_logbook(raw_data, logbook),
+        env = list(
+          raw_data = as.symbol(tar_name_data),
+          logbook = as.symbol(tar_name_logbook)
+        )
       )
     ),
     tar_target_raw(
