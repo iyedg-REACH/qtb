@@ -158,28 +158,11 @@ pipeline <- function(period,
         )
       )
     ),
-    # tar_target_raw(
-    #   name = tar_name_data_extract,
-    #   command = substitute(
-    #     write_data_extract(raw_data, cleaning_log_path),
-    #     env = list(
-    #       raw_data = as.symbol(tar_name_data),
-    #       cleaning_log_path = as.symbol(tar_name_cleaning_log_path)
-    #     )
-    #   )
-    # ),
     tar_target_raw(
       name = tar_name_cleanin_log_wb,
       command = substitute(
         openxlsx::loadWorkbook(path),
         env = list(path = as.symbol(tar_name_cleaning_log_path))
-      )
-    ),
-    tar_target_raw(
-      name = "tar_complete_logbook",
-      command = substitute(
-        complete_logbook(raw_data, logbook),
-        env = list(raw_data = as.symbol(tar_name_data), logbook = as.symbol(tar_name_logbook))
       )
     ),
     sheets_targets,
