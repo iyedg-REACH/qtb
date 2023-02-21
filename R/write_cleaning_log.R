@@ -26,6 +26,62 @@ write_cleaning_log <- function(wb,
     colNames = FALSE
   )
 
+  actions <- list(
+    "Recoded" = openxlsx::createStyle(bgFill = "#FFFF00"),
+    "Translated" = openxlsx::createStyle(bgFill = "#00B050"),
+    "Checked" = openxlsx::createStyle(bgFill = "#538DD5"),
+    "Corrected" = openxlsx::createStyle(bgFill = "#1F497D", fontColour = "#FFFFFF"),
+    "Added" = openxlsx::createStyle(bgFill = "#7030A0", fontColour = "#FFFFFF"),
+    "Removed" = openxlsx::createStyle(bgFill = "#808080", fontColour = "#FFFFFF")
+  )
+
+
+  openxlsx::conditionalFormatting(wb, "00_Summary",
+    cols = 2,
+    rows = 12:1000,
+    rule = "==\"Recoded\"", style = actions$Recoded
+  )
+
+
+  openxlsx::conditionalFormatting(wb, "00_Summary",
+    cols = 2,
+    rows = 12:1000,
+    rule = "==\"Translated\"", style = actions$Translated
+  )
+
+
+  openxlsx::conditionalFormatting(wb, "00_Summary",
+    cols = 2,
+    rows = 12:1000,
+    rule = "==\"Checked\"", style = actions$Checked
+  )
+
+  openxlsx::conditionalFormatting(wb, "00_Summary",
+    cols = 2,
+    rows = 12:1000,
+    rule = "==\"Corrected\"", style = actions$Corrected
+  )
+
+
+  openxlsx::conditionalFormatting(wb, "00_Summary",
+    cols = 2,
+    rows = 12:1000,
+    rule = "==\"Added\"", style = actions$Added
+  )
+
+  openxlsx::conditionalFormatting(wb, "00_Summary",
+    cols = 2,
+    rows = 12:1000,
+    rule = "==\"Removed\"", style = actions$Removed
+  )
+
+  openxlsx::dataValidation(wb, "00_Summary",
+    col = 2,
+    rows = 12:1000,
+    type = "list",
+    value = "'00_Summary'!$B$3:$B$8"
+  )
+
   openxlsx::writeData(wb,
     sheet = "00_Summary",
     x = summary,
