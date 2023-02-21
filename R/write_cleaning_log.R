@@ -3,6 +3,7 @@ write_cleaning_log <- function(wb,
                                clean_data,
                                data_extract,
                                logbook,
+                               summary,
                                base_path) {
   openxlsx::addWorksheet(wb, sheetName = "Clean Data")
   openxlsx::writeDataTable(wb, sheet = "Clean Data", x = clean_data)
@@ -25,6 +26,12 @@ write_cleaning_log <- function(wb,
     colNames = FALSE
   )
 
+  openxlsx::writeData(wb,
+    sheet = "00_Summary",
+    x = summary,
+    startRow = 12,
+    colNames = FALSE
+  )
 
   openxlsx::saveWorkbook(wb, fs::path(fs::path_abs(base_path), "my_output.xlsx"))
 }

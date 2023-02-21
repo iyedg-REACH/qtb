@@ -18,25 +18,25 @@ pipeline <- function(period,
   base_target_name <- toupper(deparse(substitute(period)))
   validate_period_label(base_target_name)
 
-  tar_name_raw <- paste0(base_target_name, "_raw")
-  tar_name_cleaning_log_path <- paste0(base_target_name, "_cleaning_log_path")
-  tar_name_data <- paste0(base_target_name, "_data")
-  tar_name_report <- paste0(base_target_name, "_report")
+  tar_name_raw <- paste0( "raw")
+  tar_name_cleaning_log_path <- paste0( "cleaning_log_path")
+  tar_name_data <- paste0( "data")
+  tar_name_report <- paste0( "report")
 
-  tar_name_cleanin_log_wb <- paste0(base_target_name, "_wb")
-  tar_name_summary <- paste0(base_target_name, "_summary")
-  tar_name_data_extract <- paste0(base_target_name, "_data_extract")
-  tar_name_logbook <- paste0(base_target_name, "_logbook")
-  tar_name_deletion_log <- paste0(base_target_name, "_deletion_log")
+  tar_name_cleanin_log_wb <- paste0( "wb")
+  tar_name_summary <- paste0( "summary")
+  tar_name_data_extract <- paste0( "data_extract")
+  tar_name_logbook <- paste0( "logbook")
+  tar_name_deletion_log <- paste0( "deletion_log")
 
 
-  tar_name_augmented_summary <- paste0(base_target_name, "_augmented_summary")
-  tar_name_augmented_data_extract <- paste0(base_target_name, "_augmented_data_extract")
-  tar_name_augmented_logbook <- paste0(base_target_name, "_augmented_logbook")
-  tar_name_augmented_deletion_log <- paste0(base_target_name, "_augmented_deletion_log")
-  tar_name_augmented_data <- paste0(base_target_name, "_augmented_data")
+  tar_name_augmented_summary <- paste0( "augmented_summary")
+  tar_name_augmented_data_extract <- paste0( "augmented_data_extract")
+  tar_name_augmented_logbook <- paste0( "augmented_logbook")
+  tar_name_augmented_deletion_log <- paste0( "augmented_deletion_log")
+  tar_name_augmented_data <- paste0( "augmented_data")
 
-  tar_name_cleaning_log_output <- paste0(base_target_name, "_cleaning_log_output")
+  tar_name_cleaning_log_output <- paste0( "cleaning_log_output")
 
   augmented_targets <- list(
     tar_target_raw(
@@ -101,7 +101,8 @@ pipeline <- function(period,
           clean_data = clean_data,
           data_extract = data_extract,
           base_path = base_path,
-          logbook = logbook
+          logbook = logbook,
+          summary = summary
         ),
         env = list(
           wb = as.symbol(tar_name_cleanin_log_wb),
@@ -109,6 +110,7 @@ pipeline <- function(period,
           clean_data = as.symbol(tar_name_augmented_data),
           data_extract = as.symbol(tar_name_augmented_data_extract),
           logbook = as.symbol(tar_name_augmented_logbook),
+          summary = as.symbol(tar_name_augmented_summary),
           base_path = base_path
         )
       )
