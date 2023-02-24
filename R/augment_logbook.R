@@ -23,7 +23,7 @@ augment_logbook <- function(raw_data, logbook) {
 
   completion_df <- raw_data |>
     tidyr::pivot_longer(
-      cols = -completion_columns,
+      cols = -dplyr::all_of(completion_columns),
       names_to = "question.name",
       values_to = "old.value",
       values_transform = as.character
