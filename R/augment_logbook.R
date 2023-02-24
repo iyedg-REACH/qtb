@@ -6,7 +6,6 @@ augment_logbook <- function(raw_data, logbook) {
     "Type of Issue",
     "feedback",
     "changed",
-    "old.value",
     "new.value"
   )
 
@@ -22,16 +21,26 @@ augment_logbook <- function(raw_data, logbook) {
     "enumerator_id"
   )
 
-  completion_df <- dplyr::select(
-    raw_data,
-    dplyr::all_of(completion_columns)
-  ) |>
+  completion_df <- raw_data |>
+    tidyr::pivot_longer(
+      cols = -completion_columns,
+      names_to = "question.name",
+      values_to = "old.value",
+      values_transform = as.character
+    ) |>
     dplyr::rename(
       `device ID` = deviceid,
       `Enumerator ID` = enumerator_id
     )
 
-  tidylog::left_join(necessary_logbook, completion_df, by = c("uuid" = "_uuid")) |>
+
+
+  tidylog::left_join(necessary_logbook, completion_df,
+    by = c(
+      "uuid" = "_uuid",
+      "question.name" = "question.name"
+    )
+  ) |>
     dplyr::select(
       "uuid",
       "Enumerator ID",
