@@ -230,7 +230,7 @@ pipeline <- function(period,
     tarchetypes::tar_quarto_raw(
       "report",
       path = fs::path(base_path, "report", "report.qmd"),
-     execute_params = quote(list())
+      execute_params = quote(list())
     )
   )
 }

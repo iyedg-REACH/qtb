@@ -47,5 +47,5 @@ augment_data <- function(raw_data, augmented_logbook, augmented_deletion_log) {
     tidylog::mutate(dplyr::across(dplyr::all_of(numeric_columns), as.numeric)) |>
     tidylog::mutate(dplyr::across(dplyr::ends_with("_price"), as.numeric)) |>
     tidylog::mutate(dplyr::across(dplyr::ends_with("_quantity2"), as.numeric)) |>
-    dplyr::select(dplyr::any_of(names(raw_data)))   # TODO: this may remove added columns
+    dplyr::select(dplyr::any_of(names(raw_data))) # TODO: this may remove added columns
 }

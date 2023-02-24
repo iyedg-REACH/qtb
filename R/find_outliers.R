@@ -1,5 +1,4 @@
 find_outliers <- function(df, logbook) {
-
   treated_observations <- dplyr::select(
     logbook,
     dplyr::all_of(c("uuid", "question.name"))
