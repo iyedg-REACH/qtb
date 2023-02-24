@@ -44,11 +44,13 @@ pipeline <- function(period,
       command = substitute(
         augment_summary(
           raw_data,
-          summary
+          summary,
+          augmented_logbook
         ),
         env = list(
           raw_data = as.symbol(tar_name_data),
-          summary = as.symbol(tar_name_summary)
+          summary = as.symbol(tar_name_summary),
+          augmented_logbook = as.symbol(tar_name_augmented_logbook)
         )
       )
     ),
@@ -200,7 +202,7 @@ pipeline <- function(period,
     tar_target_raw(
       name = tar_name_data,
       command = substitute(
-        readxl::read_excel(path, guess_max = 10000),
+        readxl::read_excel(path, guess_max = 10000) |> generate_enumerator_id(),
         env = list(
           path = as.symbol(tar_name_raw)
         )
@@ -214,6 +216,21 @@ pipeline <- function(period,
       )
     ),
     sheets_targets,
-    augmented_targets
+    augmented_targets,
+    tar_target_raw(
+      "outliers_report",
+      command = substitute(find_outliers(clean_data, logbook),
+        env = list(
+          clean_data = as.symbol(tar_name_augmented_data),
+          logbook = as.symbol(tar_name_logbook)
+        )
+      ),
+      packages = c("dplyr", "magrittr")
+    ),
+    tarchetypes::tar_quarto_raw(
+      "report",
+      path = fs::path(base_path, "report", "report.qmd"),
+     execute_params = quote(list())
+    )
   )
 }
