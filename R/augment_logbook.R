@@ -18,7 +18,7 @@ augment_logbook <- function(raw_data, logbook) {
   completion_columns <- c(
     "_uuid",
     "deviceid",
-    "q_name"
+    "enumerator_id"
   )
 
   completion_df <- dplyr::select(
@@ -28,7 +28,7 @@ augment_logbook <- function(raw_data, logbook) {
     dplyr::mutate(changed = "Yes") |>
     dplyr::rename(
       `device ID` = deviceid,
-      `Enumerator ID` = q_name
+      `Enumerator ID` = enumerator_id
     )
 
   tidylog::left_join(necessary_logbook, completion_df, by = c("uuid" = "_uuid")) |>

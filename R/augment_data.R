@@ -28,13 +28,14 @@ augment_data <- function(raw_data, augmented_logbook, augmented_deletion_log) {
     logbook,
     by = c("_uuid" = "uuid", "question.name" = "question.name")
   ) |>
-    dplyr::mutate(old.value = new.value) |>
+    dplyr::mutate(old.value = as.character(new.value)) |>
     dplyr::select(-new.value)
 
   untouched <- dplyr::anti_join(long_raw,
     logbook,
     by = c("_uuid" = "uuid", "question.name" = "question.name")
-  )
+  ) |>
+    dplyr::mutate(old.value = as.character(old.value))
 
   dplyr::bind_rows(untouched, to_update) |>
     tidyr::pivot_wider(
@@ -46,5 +47,5 @@ augment_data <- function(raw_data, augmented_logbook, augmented_deletion_log) {
     tidylog::mutate(dplyr::across(dplyr::all_of(numeric_columns), as.numeric)) |>
     tidylog::mutate(dplyr::across(dplyr::ends_with("_price"), as.numeric)) |>
     tidylog::mutate(dplyr::across(dplyr::ends_with("_quantity2"), as.numeric)) |>
-    dplyr::select(dplyr::any_of(names(raw_data))) # TODO: this may remove added columns
+    dplyr::select(dplyr::any_of(names(raw_data)))   # TODO: this may remove added columns
 }
