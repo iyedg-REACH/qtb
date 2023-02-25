@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r echo=FALSE}
 library(qtb)
 ```
 
@@ -18,7 +18,7 @@ not included in the calculation of MEB costs.
 
 ## Food Weights
 
-```{r}
+```{r echo=FALSE}
 meb_weights |>
   dplyr::filter(group == "food") |>
   gt::gt()
@@ -26,7 +26,7 @@ meb_weights |>
 
 ## Hygiene weights
 
-```{r}
+```{r echo=FALSE}
 meb_weights |>
   dplyr::filter(group == "hygiene") |>
   gt::gt()
@@ -34,7 +34,7 @@ meb_weights |>
 
 ## Cooking Fuel weights
 
-```{r}
+```{r echo=FALSE}
 meb_weights |>
   dplyr::filter(group == "cooking_fuel") |>
   gt::gt()
@@ -43,7 +43,7 @@ meb_weights |>
 ## Pharmaceutical Products weights
 
 
-```{r}
+```{r echo=FALSE}
 meb_weights |>
   dplyr::filter(group == "pharmaceutical") |>
   gt::gt()
@@ -52,7 +52,7 @@ meb_weights |>
 ## Gasoline Weights
 
 
-```{r}
+```{r echo=FALSE}
 meb_weights |>
   dplyr::filter(group == "gasoline") |>
   gt::gt()
