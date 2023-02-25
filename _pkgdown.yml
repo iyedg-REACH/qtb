@@ -18,9 +18,11 @@ reference:
   contents:
   - apply_cleaning_log
   - get_item_columns
+  - generate_enumerator_id
 - title: Cleaning Pipeline
   contents:
   - qtb_visnetwork
+  - pipeline
 
 - title: Data-Augmenting Functions
   desc: Functions that ingest raw data and augment it

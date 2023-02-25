@@ -1,3 +1,12 @@
+#' Generate a Unique ID for each enumerator
+#'
+#' @param df Data Frame of the Raw JMMI Survey Data
+#'
+#' @return  Data Frame of Submissions UUIDs and Unique IDs for the corresponding enumerators
+#' @export
+#'
+#' @examples
+#' generate_enumerator_id(jmmi_2022_feb)
 generate_enumerator_id <- function(df) {
   ids_df <- df |>
     dplyr::select(q_orgname, deviceid) |>
