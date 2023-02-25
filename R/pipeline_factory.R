@@ -11,12 +11,12 @@ validate_period_label <- function(period) {
 
 #' Data Cleaning Pipeline
 #'
-#' @param period
-#' @param kobo_username
-#' @param kobo_password
-#' @param uid
-#' @param base_path
-#' @param raw_data_age
+#' @param period Period Name
+#' @param kobo_username KoBo Username, defaults to KOBO_USERNAME from environment
+#' @param kobo_password KoBo Password, defaults to KOBO_PASSWORD from environment
+#' @param uid Form UID on KoBo Toolbox
+#' @param base_path Path to the project
+#' @param raw_data_age Duration for refreshing the KoBo Data Export
 #'
 #' @return
 #' @export

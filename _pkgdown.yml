@@ -21,6 +21,7 @@ reference:
   - generate_enumerator_id
   - find_outliers
   - write_cleaning_log
+  - init_data_collection
 
 - title: Cleaning Pipeline
   contents:

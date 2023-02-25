@@ -1,5 +1,12 @@
+#' Initialize a JMMI Project
+#'
+#' @param period Character Vector in the Format `JMMI_2023_01`
+#' @param base_path Path to the project
+#'
+#' @return
+#' @export
 init_data_collection <- function(period, base_path) {
-  qtb:::validate_period_label(period)
+  validate_period_label(period)
 
   data_collection_path <- fs::path(base_path, as.character(period))
 
