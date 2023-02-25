@@ -25,7 +25,6 @@ pipeline <- function(period,
 
   tar_name_cleanin_log_wb <- paste0("wb")
   tar_name_summary <- paste0("summary")
-  tar_name_data_extract <- paste0("data_extract")
   tar_name_logbook <- paste0("logbook")
   tar_name_deletion_log <- paste0("deletion_log")
 
@@ -57,10 +56,9 @@ pipeline <- function(period,
     tar_target_raw(
       name = tar_name_augmented_data_extract,
       command = substitute(
-        augment_data_extract(raw_data, data_extract),
+        augment_data_extract(raw_data),
         env = list(
-          raw_data = as.symbol(tar_name_data),
-          data_extract = as.symbol(tar_name_data_extract)
+          raw_data = as.symbol(tar_name_data)
         )
       )
     ),
@@ -126,14 +124,6 @@ pipeline <- function(period,
         path,
         sheet = "00_Summary",
         skip = 10,
-        na = c("", "NA")
-      ), env = list(path = as.symbol(tar_name_cleaning_log_path)))
-    ),
-    tar_target_raw(
-      name = tar_name_data_extract,
-      command = substitute(readxl::read_excel(
-        path,
-        sheet = "01_data_extract",
         na = c("", "NA")
       ), env = list(path = as.symbol(tar_name_cleaning_log_path)))
     ),

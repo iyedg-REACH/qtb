@@ -15,6 +15,13 @@ reference:
   - tracked_municipalities
 - title: Misc
   desc: General Utilities
-  contents: apply_cleaning_log
+  contents:
+  - apply_cleaning_log
+  - get_item_columns
 - title: Cleaning Pipeline
   contents: qtb_visnetwork
+
+- title: Data-Augmenting Functions
+  desc: Functions that ingest raw data and augment it
+  contents:
+  - augment_data_extract
