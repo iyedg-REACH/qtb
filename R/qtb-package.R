@@ -8,5 +8,6 @@
 #' @importFrom stats median
 #' @importFrom tidyr pivot_longer pivot_wider
 #' @importFrom ggplot2 ggplot aes
+#' @importFrom targets tar_target_raw
 ## usethis namespace: end
 NULL

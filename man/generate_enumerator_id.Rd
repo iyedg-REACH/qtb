@@ -15,6 +15,3 @@ Data Frame of Submissions UUIDs and Unique IDs for the corresponding enumerators
 \description{
 Generate a Unique ID for each enumerator
 }
-\examples{
-generate_enumerator_id(jmmi_2022_feb)
-}

@@ -19,6 +19,9 @@ reference:
   - apply_cleaning_log
   - get_item_columns
   - generate_enumerator_id
+  - find_outliers
+  - write_cleaning_log
+
 - title: Cleaning Pipeline
   contents:
   - qtb_visnetwork

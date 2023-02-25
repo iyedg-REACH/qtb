@@ -9,6 +9,17 @@ validate_period_label <- function(period) {
   )
 }
 
+#' Data Cleaning Pipeline
+#'
+#' @param period
+#' @param kobo_username
+#' @param kobo_password
+#' @param uid
+#' @param base_path
+#' @param raw_data_age
+#'
+#' @return
+#' @export
 pipeline <- function(period,
                      kobo_username = Sys.getenv("KOBO_USERNAME"),
                      kobo_password = Sys.getenv("KOBO_PASSWORD"),

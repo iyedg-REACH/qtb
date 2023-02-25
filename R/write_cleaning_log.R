@@ -1,3 +1,15 @@
+#' Export a Cleaning Log of Augmented data
+#'
+#' @param wb Workbook of the Template Cleaning Log
+#' @param raw_data Data Frame of the Raw JMMI Survey Data
+#' @param clean_data Data Frame of the Augmented Raw Data
+#' @param data_extract Data Frame of the Augmented Data Extract
+#' @param logbook  Data Frame of the Augmented Logbook
+#' @param summary  Data Frame of the Augmented Summary
+#' @param base_path Path to the export directory
+#'
+#' @return
+#' @export
 write_cleaning_log <- function(wb,
                                raw_data,
                                clean_data,
@@ -89,5 +101,5 @@ write_cleaning_log <- function(wb,
     colNames = FALSE
   )
 
-  openxlsx::saveWorkbook(wb, fs::path(fs::path_abs(base_path), "my_output.xlsx"))
+  openxlsx::saveWorkbook(wb, fs::path(fs::path_abs(base_path), "my_output.xlsx"), overwrite = T)
 }

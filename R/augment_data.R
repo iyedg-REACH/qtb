@@ -1,3 +1,11 @@
+#' Apply Modifications from a Logbook and a Deletion Log to Raw Data
+#'
+#' @param raw_data Data frame of the raw JMMI Survey Data
+#' @param augmented_logbook  Data Frame of the Logbook
+#' @param augmented_deletion_log  Data Frame of the Deletion Log
+#'
+#' @return Data Frame of the Data with the Logbook and Deletion Log Applied
+#' @export
 augment_data <- function(raw_data, augmented_logbook, augmented_deletion_log) {
   logbook <- dplyr::select(
     augmented_logbook,
@@ -28,14 +36,14 @@ augment_data <- function(raw_data, augmented_logbook, augmented_deletion_log) {
     logbook,
     by = c("_uuid" = "uuid", "question.name" = "question.name")
   ) |>
-    dplyr::mutate(old.value = as.character(new.value)) |>
-    dplyr::select(-new.value)
+    dplyr::mutate(old.value = as.character(.data[["new.value"]])) |>
+    dplyr::select(-.data[["new.value"]])
 
   untouched <- dplyr::anti_join(long_raw,
     logbook,
     by = c("_uuid" = "uuid", "question.name" = "question.name")
   ) |>
-    dplyr::mutate(old.value = as.character(old.value))
+    dplyr::mutate(old.value = as.character(.data[["old.value"]]))
 
   dplyr::bind_rows(untouched, to_update) |>
     tidyr::pivot_wider(
@@ -43,7 +51,7 @@ augment_data <- function(raw_data, augmented_logbook, augmented_deletion_log) {
       names_from = "question.name",
       values_from = "old.value"
     ) |>
-    tidylog::filter(!`_uuid` %in% deletion_log$uuid) |>
+    tidylog::filter(!.data[["_uuid"]] %in% deletion_log$uuid) |>
     tidylog::mutate(dplyr::across(dplyr::all_of(numeric_columns), as.numeric)) |>
     tidylog::mutate(dplyr::across(dplyr::ends_with("_price"), as.numeric)) |>
     tidylog::mutate(dplyr::across(dplyr::ends_with("_quantity2"), as.numeric)) |>
