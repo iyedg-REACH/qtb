@@ -33,6 +33,7 @@ Imports:
     tarchetypes,
     targets,
     tibble,
+    tidylog,
     tidyr
 Suggests: 
     paletteer,

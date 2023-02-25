@@ -3,6 +3,8 @@
 export("%>%")
 export(admin_level_medians)
 export(apply_cleaning_log)
+export(augment_logbook)
+export(augment_summary)
 export(compute_meb_cost)
 export(get_item_columns)
 export(qtb_visnetwork)

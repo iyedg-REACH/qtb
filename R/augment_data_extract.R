@@ -9,8 +9,8 @@ augment_data_extract <- function(raw_data) {
     all_of(c("_uuid", "enumerator_id"))
   ) |>
     dplyr::rename(
-      uuid = `_uuid`,
-      `enumerator ID` = enumerator_id
+      uuid = .data[["_uuid"]],
+      `enumerator ID` = .data[["enumerator_id"]]
     )
 
   return(data_extract)

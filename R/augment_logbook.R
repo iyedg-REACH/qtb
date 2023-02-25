@@ -1,3 +1,10 @@
+#' Generate A Logbook from Raw Data
+#'
+#' @param raw_data  Data Frame of the Raw JMMI Survey Data
+#' @param logbook State of the `02_Logook` Sheet before running the function
+#'
+#' @return Data Frame Listing the changes entered manually to the `02_Logook` Sheet
+#' @export
 augment_logbook <- function(raw_data, logbook) {
   necessary_columns <- c(
     "uuid",
@@ -29,8 +36,8 @@ augment_logbook <- function(raw_data, logbook) {
       values_transform = as.character
     ) |>
     dplyr::rename(
-      `device ID` = deviceid,
-      `Enumerator ID` = enumerator_id
+      `device ID` = .data[["deviceid"]],
+      `Enumerator ID` = .data[["enumerator_id"]]
     )
 
 
