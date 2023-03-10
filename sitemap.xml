@@ -31,10 +31,34 @@
     <loc>https://iyedg-reach.github.io/qtb/reference/apply_cleaning_log.html</loc>
   </url>
   <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/augment_data.html</loc>
+  </url>
+  <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/augment_data_extract.html</loc>
+  </url>
+  <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/augment_logbook.html</loc>
+  </url>
+  <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/augment_summary.html</loc>
+  </url>
+  <url>
     <loc>https://iyedg-reach.github.io/qtb/reference/compute_meb_cost.html</loc>
   </url>
   <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/find_outliers.html</loc>
+  </url>
+  <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/generate_enumerator_id.html</loc>
+  </url>
+  <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/get_item_columns.html</loc>
+  </url>
+  <url>
     <loc>https://iyedg-reach.github.io/qtb/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/init_data_collection.html</loc>
   </url>
   <url>
     <loc>https://iyedg-reach.github.io/qtb/reference/jmmi_2022_feb.html</loc>
@@ -55,9 +79,21 @@
     <loc>https://iyedg-reach.github.io/qtb/reference/meb_weights.html</loc>
   </url>
   <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/pipeline.html</loc>
+  </url>
+  <url>
     <loc>https://iyedg-reach.github.io/qtb/reference/qtb-package.html</loc>
   </url>
   <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/qtb_visnetwork.html</loc>
+  </url>
+  <url>
     <loc>https://iyedg-reach.github.io/qtb/reference/tracked_municipalities.html</loc>
+  </url>
+  <url>
+    <loc>https://iyedg-reach.github.io/qtb/reference/write_cleaning_log.html</loc>
   </url>
 </urlset>

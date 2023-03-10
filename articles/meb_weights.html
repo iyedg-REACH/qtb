@@ -71,23 +71,17 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://iyedg-reach.github.io/qtb/">qtb</a></span><span class="op">)</span></span></code></pre></div>
 <p>Please note that the prices for items where the weight is 0 are
 collected but are not included in the calculation of MEB costs.</p>
 <div class="section level2">
 <h2 id="food-weights">Food Weights<a class="anchor" aria-label="anchor" href="#food-weights"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meb_weights</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"food"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="pfjodgbbfo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qphudcmtbj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#pfjodgbbfo .gt_table {
+#qphudcmtbj .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -112,7 +106,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-left-color: #D3D3D3;
 }
 
-#pfjodgbbfo .gt_heading {
+#qphudcmtbj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -124,12 +118,12 @@ collected but are not included in the calculation of MEB costs.</p>
   border-right-color: #D3D3D3;
 }
 
-#pfjodgbbfo .gt_caption {
+#qphudcmtbj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pfjodgbbfo .gt_title {
+#qphudcmtbj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -141,7 +135,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-bottom-width: 0;
 }
 
-#pfjodgbbfo .gt_subtitle {
+#qphudcmtbj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -153,13 +147,13 @@ collected but are not included in the calculation of MEB costs.</p>
   border-top-width: 0;
 }
 
-#pfjodgbbfo .gt_bottom_border {
+#qphudcmtbj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pfjodgbbfo .gt_col_headings {
+#qphudcmtbj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -174,7 +168,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-right-color: #D3D3D3;
 }
 
-#pfjodgbbfo .gt_col_heading {
+#qphudcmtbj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -194,7 +188,7 @@ collected but are not included in the calculation of MEB costs.</p>
   overflow-x: hidden;
 }
 
-#pfjodgbbfo .gt_column_spanner_outer {
+#qphudcmtbj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -206,15 +200,15 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 4px;
 }
 
-#pfjodgbbfo .gt_column_spanner_outer:first-child {
+#qphudcmtbj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pfjodgbbfo .gt_column_spanner_outer:last-child {
+#qphudcmtbj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pfjodgbbfo .gt_column_spanner {
+#qphudcmtbj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -226,7 +220,7 @@ collected but are not included in the calculation of MEB costs.</p>
   width: 100%;
 }
 
-#pfjodgbbfo .gt_group_heading {
+#qphudcmtbj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -252,7 +246,7 @@ collected but are not included in the calculation of MEB costs.</p>
   text-align: left;
 }
 
-#pfjodgbbfo .gt_empty_group_heading {
+#qphudcmtbj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -267,15 +261,15 @@ collected but are not included in the calculation of MEB costs.</p>
   vertical-align: middle;
 }
 
-#pfjodgbbfo .gt_from_md > :first-child {
+#qphudcmtbj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pfjodgbbfo .gt_from_md > :last-child {
+#qphudcmtbj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pfjodgbbfo .gt_row {
+#qphudcmtbj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -294,7 +288,7 @@ collected but are not included in the calculation of MEB costs.</p>
   overflow-x: hidden;
 }
 
-#pfjodgbbfo .gt_stub {
+#qphudcmtbj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -307,7 +301,7 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 5px;
 }
 
-#pfjodgbbfo .gt_stub_row_group {
+#qphudcmtbj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -321,11 +315,11 @@ collected but are not included in the calculation of MEB costs.</p>
   vertical-align: top;
 }
 
-#pfjodgbbfo .gt_row_group_first td {
+#qphudcmtbj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pfjodgbbfo .gt_summary_row {
+#qphudcmtbj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -335,16 +329,16 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 5px;
 }
 
-#pfjodgbbfo .gt_first_summary_row {
+#qphudcmtbj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pfjodgbbfo .gt_first_summary_row.thick {
+#qphudcmtbj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pfjodgbbfo .gt_last_summary_row {
+#qphudcmtbj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -354,7 +348,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#pfjodgbbfo .gt_grand_summary_row {
+#qphudcmtbj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -364,7 +358,7 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 5px;
 }
 
-#pfjodgbbfo .gt_first_grand_summary_row {
+#qphudcmtbj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -374,11 +368,11 @@ collected but are not included in the calculation of MEB costs.</p>
   border-top-color: #D3D3D3;
 }
 
-#pfjodgbbfo .gt_striped {
+#qphudcmtbj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pfjodgbbfo .gt_table_body {
+#qphudcmtbj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -387,7 +381,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#pfjodgbbfo .gt_footnotes {
+#qphudcmtbj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -401,7 +395,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-right-color: #D3D3D3;
 }
 
-#pfjodgbbfo .gt_footnote {
+#qphudcmtbj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -410,7 +404,7 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 5px;
 }
 
-#pfjodgbbfo .gt_sourcenotes {
+#qphudcmtbj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -424,7 +418,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-right-color: #D3D3D3;
 }
 
-#pfjodgbbfo .gt_sourcenote {
+#qphudcmtbj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -432,64 +426,64 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 5px;
 }
 
-#pfjodgbbfo .gt_left {
+#qphudcmtbj .gt_left {
   text-align: left;
 }
 
-#pfjodgbbfo .gt_center {
+#qphudcmtbj .gt_center {
   text-align: center;
 }
 
-#pfjodgbbfo .gt_right {
+#qphudcmtbj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pfjodgbbfo .gt_font_normal {
+#qphudcmtbj .gt_font_normal {
   font-weight: normal;
 }
 
-#pfjodgbbfo .gt_font_bold {
+#qphudcmtbj .gt_font_bold {
   font-weight: bold;
 }
 
-#pfjodgbbfo .gt_font_italic {
+#qphudcmtbj .gt_font_italic {
   font-style: italic;
 }
 
-#pfjodgbbfo .gt_super {
+#qphudcmtbj .gt_super {
   font-size: 65%;
 }
 
-#pfjodgbbfo .gt_footnote_marks {
+#qphudcmtbj .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#pfjodgbbfo .gt_asterisk {
+#qphudcmtbj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pfjodgbbfo .gt_indent_1 {
+#qphudcmtbj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pfjodgbbfo .gt_indent_2 {
+#qphudcmtbj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pfjodgbbfo .gt_indent_3 {
+#qphudcmtbj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pfjodgbbfo .gt_indent_4 {
+#qphudcmtbj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pfjodgbbfo .gt_indent_5 {
+#qphudcmtbj .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -674,16 +668,12 @@ collected but are not included in the calculation of MEB costs.</p>
 <div class="section level2">
 <h2 id="hygiene-weights">Hygiene weights<a class="anchor" aria-label="anchor" href="#hygiene-weights"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meb_weights</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"hygiene"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="sxkacslbvw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vtgrhrnwal" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#sxkacslbvw .gt_table {
+#vtgrhrnwal .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -708,7 +698,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-left-color: #D3D3D3;
 }
 
-#sxkacslbvw .gt_heading {
+#vtgrhrnwal .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -720,12 +710,12 @@ collected but are not included in the calculation of MEB costs.</p>
   border-right-color: #D3D3D3;
 }
 
-#sxkacslbvw .gt_caption {
+#vtgrhrnwal .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#sxkacslbvw .gt_title {
+#vtgrhrnwal .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -737,7 +727,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-bottom-width: 0;
 }
 
-#sxkacslbvw .gt_subtitle {
+#vtgrhrnwal .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -749,13 +739,13 @@ collected but are not included in the calculation of MEB costs.</p>
   border-top-width: 0;
 }
 
-#sxkacslbvw .gt_bottom_border {
+#vtgrhrnwal .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sxkacslbvw .gt_col_headings {
+#vtgrhrnwal .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -770,7 +760,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-right-color: #D3D3D3;
 }
 
-#sxkacslbvw .gt_col_heading {
+#vtgrhrnwal .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -790,7 +780,7 @@ collected but are not included in the calculation of MEB costs.</p>
   overflow-x: hidden;
 }
 
-#sxkacslbvw .gt_column_spanner_outer {
+#vtgrhrnwal .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -802,15 +792,15 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 4px;
 }
 
-#sxkacslbvw .gt_column_spanner_outer:first-child {
+#vtgrhrnwal .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sxkacslbvw .gt_column_spanner_outer:last-child {
+#vtgrhrnwal .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sxkacslbvw .gt_column_spanner {
+#vtgrhrnwal .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -822,7 +812,7 @@ collected but are not included in the calculation of MEB costs.</p>
   width: 100%;
 }
 
-#sxkacslbvw .gt_group_heading {
+#vtgrhrnwal .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -848,7 +838,7 @@ collected but are not included in the calculation of MEB costs.</p>
   text-align: left;
 }
 
-#sxkacslbvw .gt_empty_group_heading {
+#vtgrhrnwal .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -863,15 +853,15 @@ collected but are not included in the calculation of MEB costs.</p>
   vertical-align: middle;
 }
 
-#sxkacslbvw .gt_from_md > :first-child {
+#vtgrhrnwal .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sxkacslbvw .gt_from_md > :last-child {
+#vtgrhrnwal .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sxkacslbvw .gt_row {
+#vtgrhrnwal .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -890,7 +880,7 @@ collected but are not included in the calculation of MEB costs.</p>
   overflow-x: hidden;
 }
 
-#sxkacslbvw .gt_stub {
+#vtgrhrnwal .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -903,7 +893,7 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 5px;
 }
 
-#sxkacslbvw .gt_stub_row_group {
+#vtgrhrnwal .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -917,11 +907,11 @@ collected but are not included in the calculation of MEB costs.</p>
   vertical-align: top;
 }
 
-#sxkacslbvw .gt_row_group_first td {
+#vtgrhrnwal .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#sxkacslbvw .gt_summary_row {
+#vtgrhrnwal .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -931,16 +921,16 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 5px;
 }
 
-#sxkacslbvw .gt_first_summary_row {
+#vtgrhrnwal .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#sxkacslbvw .gt_first_summary_row.thick {
+#vtgrhrnwal .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#sxkacslbvw .gt_last_summary_row {
+#vtgrhrnwal .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -950,7 +940,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#sxkacslbvw .gt_grand_summary_row {
+#vtgrhrnwal .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -960,7 +950,7 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 5px;
 }
 
-#sxkacslbvw .gt_first_grand_summary_row {
+#vtgrhrnwal .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -970,11 +960,11 @@ collected but are not included in the calculation of MEB costs.</p>
   border-top-color: #D3D3D3;
 }
 
-#sxkacslbvw .gt_striped {
+#vtgrhrnwal .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sxkacslbvw .gt_table_body {
+#vtgrhrnwal .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -983,7 +973,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#sxkacslbvw .gt_footnotes {
+#vtgrhrnwal .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -997,7 +987,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-right-color: #D3D3D3;
 }
 
-#sxkacslbvw .gt_footnote {
+#vtgrhrnwal .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1006,7 +996,7 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 5px;
 }
 
-#sxkacslbvw .gt_sourcenotes {
+#vtgrhrnwal .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1020,7 +1010,7 @@ collected but are not included in the calculation of MEB costs.</p>
   border-right-color: #D3D3D3;
 }
 
-#sxkacslbvw .gt_sourcenote {
+#vtgrhrnwal .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1028,64 +1018,64 @@ collected but are not included in the calculation of MEB costs.</p>
   padding-right: 5px;
 }
 
-#sxkacslbvw .gt_left {
+#vtgrhrnwal .gt_left {
   text-align: left;
 }
 
-#sxkacslbvw .gt_center {
+#vtgrhrnwal .gt_center {
   text-align: center;
 }
 
-#sxkacslbvw .gt_right {
+#vtgrhrnwal .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sxkacslbvw .gt_font_normal {
+#vtgrhrnwal .gt_font_normal {
   font-weight: normal;
 }
 
-#sxkacslbvw .gt_font_bold {
+#vtgrhrnwal .gt_font_bold {
   font-weight: bold;
 }
 
-#sxkacslbvw .gt_font_italic {
+#vtgrhrnwal .gt_font_italic {
   font-style: italic;
 }
 
-#sxkacslbvw .gt_super {
+#vtgrhrnwal .gt_super {
   font-size: 65%;
 }
 
-#sxkacslbvw .gt_footnote_marks {
+#vtgrhrnwal .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#sxkacslbvw .gt_asterisk {
+#vtgrhrnwal .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#sxkacslbvw .gt_indent_1 {
+#vtgrhrnwal .gt_indent_1 {
   text-indent: 5px;
 }
 
-#sxkacslbvw .gt_indent_2 {
+#vtgrhrnwal .gt_indent_2 {
   text-indent: 10px;
 }
 
-#sxkacslbvw .gt_indent_3 {
+#vtgrhrnwal .gt_indent_3 {
   text-indent: 15px;
 }
 
-#sxkacslbvw .gt_indent_4 {
+#vtgrhrnwal .gt_indent_4 {
   text-indent: 20px;
 }
 
-#sxkacslbvw .gt_indent_5 {
+#vtgrhrnwal .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1178,16 +1168,12 @@ Sanitiser (1L)</td>
 <div class="section level2">
 <h2 id="cooking-fuel-weights">Cooking Fuel weights<a class="anchor" aria-label="anchor" href="#cooking-fuel-weights"></a>
 </h2>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meb_weights</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"cooking_fuel"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="hfnfdqsrca" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wnofzlxljo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hfnfdqsrca .gt_table {
+#wnofzlxljo .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1212,7 +1198,7 @@ Sanitiser (1L)</td>
   border-left-color: #D3D3D3;
 }
 
-#hfnfdqsrca .gt_heading {
+#wnofzlxljo .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1224,12 +1210,12 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#hfnfdqsrca .gt_caption {
+#wnofzlxljo .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hfnfdqsrca .gt_title {
+#wnofzlxljo .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1241,7 +1227,7 @@ Sanitiser (1L)</td>
   border-bottom-width: 0;
 }
 
-#hfnfdqsrca .gt_subtitle {
+#wnofzlxljo .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1253,13 +1239,13 @@ Sanitiser (1L)</td>
   border-top-width: 0;
 }
 
-#hfnfdqsrca .gt_bottom_border {
+#wnofzlxljo .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hfnfdqsrca .gt_col_headings {
+#wnofzlxljo .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1274,7 +1260,7 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#hfnfdqsrca .gt_col_heading {
+#wnofzlxljo .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1294,7 +1280,7 @@ Sanitiser (1L)</td>
   overflow-x: hidden;
 }
 
-#hfnfdqsrca .gt_column_spanner_outer {
+#wnofzlxljo .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1306,15 +1292,15 @@ Sanitiser (1L)</td>
   padding-right: 4px;
 }
 
-#hfnfdqsrca .gt_column_spanner_outer:first-child {
+#wnofzlxljo .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hfnfdqsrca .gt_column_spanner_outer:last-child {
+#wnofzlxljo .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hfnfdqsrca .gt_column_spanner {
+#wnofzlxljo .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1326,7 +1312,7 @@ Sanitiser (1L)</td>
   width: 100%;
 }
 
-#hfnfdqsrca .gt_group_heading {
+#wnofzlxljo .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1352,7 +1338,7 @@ Sanitiser (1L)</td>
   text-align: left;
 }
 
-#hfnfdqsrca .gt_empty_group_heading {
+#wnofzlxljo .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1367,15 +1353,15 @@ Sanitiser (1L)</td>
   vertical-align: middle;
 }
 
-#hfnfdqsrca .gt_from_md > :first-child {
+#wnofzlxljo .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hfnfdqsrca .gt_from_md > :last-child {
+#wnofzlxljo .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hfnfdqsrca .gt_row {
+#wnofzlxljo .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1394,7 +1380,7 @@ Sanitiser (1L)</td>
   overflow-x: hidden;
 }
 
-#hfnfdqsrca .gt_stub {
+#wnofzlxljo .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1407,7 +1393,7 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#hfnfdqsrca .gt_stub_row_group {
+#wnofzlxljo .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1421,11 +1407,11 @@ Sanitiser (1L)</td>
   vertical-align: top;
 }
 
-#hfnfdqsrca .gt_row_group_first td {
+#wnofzlxljo .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hfnfdqsrca .gt_summary_row {
+#wnofzlxljo .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1435,16 +1421,16 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#hfnfdqsrca .gt_first_summary_row {
+#wnofzlxljo .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hfnfdqsrca .gt_first_summary_row.thick {
+#wnofzlxljo .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hfnfdqsrca .gt_last_summary_row {
+#wnofzlxljo .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1454,7 +1440,7 @@ Sanitiser (1L)</td>
   border-bottom-color: #D3D3D3;
 }
 
-#hfnfdqsrca .gt_grand_summary_row {
+#wnofzlxljo .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1464,7 +1450,7 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#hfnfdqsrca .gt_first_grand_summary_row {
+#wnofzlxljo .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1474,11 +1460,11 @@ Sanitiser (1L)</td>
   border-top-color: #D3D3D3;
 }
 
-#hfnfdqsrca .gt_striped {
+#wnofzlxljo .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hfnfdqsrca .gt_table_body {
+#wnofzlxljo .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1487,7 +1473,7 @@ Sanitiser (1L)</td>
   border-bottom-color: #D3D3D3;
 }
 
-#hfnfdqsrca .gt_footnotes {
+#wnofzlxljo .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1501,7 +1487,7 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#hfnfdqsrca .gt_footnote {
+#wnofzlxljo .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1510,7 +1496,7 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#hfnfdqsrca .gt_sourcenotes {
+#wnofzlxljo .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1524,7 +1510,7 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#hfnfdqsrca .gt_sourcenote {
+#wnofzlxljo .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1532,64 +1518,64 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#hfnfdqsrca .gt_left {
+#wnofzlxljo .gt_left {
   text-align: left;
 }
 
-#hfnfdqsrca .gt_center {
+#wnofzlxljo .gt_center {
   text-align: center;
 }
 
-#hfnfdqsrca .gt_right {
+#wnofzlxljo .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hfnfdqsrca .gt_font_normal {
+#wnofzlxljo .gt_font_normal {
   font-weight: normal;
 }
 
-#hfnfdqsrca .gt_font_bold {
+#wnofzlxljo .gt_font_bold {
   font-weight: bold;
 }
 
-#hfnfdqsrca .gt_font_italic {
+#wnofzlxljo .gt_font_italic {
   font-style: italic;
 }
 
-#hfnfdqsrca .gt_super {
+#wnofzlxljo .gt_super {
   font-size: 65%;
 }
 
-#hfnfdqsrca .gt_footnote_marks {
+#wnofzlxljo .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#hfnfdqsrca .gt_asterisk {
+#wnofzlxljo .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hfnfdqsrca .gt_indent_1 {
+#wnofzlxljo .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hfnfdqsrca .gt_indent_2 {
+#wnofzlxljo .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hfnfdqsrca .gt_indent_3 {
+#wnofzlxljo .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hfnfdqsrca .gt_indent_4 {
+#wnofzlxljo .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hfnfdqsrca .gt_indent_5 {
+#wnofzlxljo .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1629,16 +1615,12 @@ Sanitiser (1L)</td>
 <div class="section level2">
 <h2 id="pharmaceutical-products-weights">Pharmaceutical Products weights<a class="anchor" aria-label="anchor" href="#pharmaceutical-products-weights"></a>
 </h2>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meb_weights</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"pharmaceutical"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="xakeohtomh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="leblvsbsko" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xakeohtomh .gt_table {
+#leblvsbsko .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1663,7 +1645,7 @@ Sanitiser (1L)</td>
   border-left-color: #D3D3D3;
 }
 
-#xakeohtomh .gt_heading {
+#leblvsbsko .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1675,12 +1657,12 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#xakeohtomh .gt_caption {
+#leblvsbsko .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xakeohtomh .gt_title {
+#leblvsbsko .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1692,7 +1674,7 @@ Sanitiser (1L)</td>
   border-bottom-width: 0;
 }
 
-#xakeohtomh .gt_subtitle {
+#leblvsbsko .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1704,13 +1686,13 @@ Sanitiser (1L)</td>
   border-top-width: 0;
 }
 
-#xakeohtomh .gt_bottom_border {
+#leblvsbsko .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xakeohtomh .gt_col_headings {
+#leblvsbsko .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1725,7 +1707,7 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#xakeohtomh .gt_col_heading {
+#leblvsbsko .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1745,7 +1727,7 @@ Sanitiser (1L)</td>
   overflow-x: hidden;
 }
 
-#xakeohtomh .gt_column_spanner_outer {
+#leblvsbsko .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1757,15 +1739,15 @@ Sanitiser (1L)</td>
   padding-right: 4px;
 }
 
-#xakeohtomh .gt_column_spanner_outer:first-child {
+#leblvsbsko .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xakeohtomh .gt_column_spanner_outer:last-child {
+#leblvsbsko .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xakeohtomh .gt_column_spanner {
+#leblvsbsko .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1777,7 +1759,7 @@ Sanitiser (1L)</td>
   width: 100%;
 }
 
-#xakeohtomh .gt_group_heading {
+#leblvsbsko .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1803,7 +1785,7 @@ Sanitiser (1L)</td>
   text-align: left;
 }
 
-#xakeohtomh .gt_empty_group_heading {
+#leblvsbsko .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1818,15 +1800,15 @@ Sanitiser (1L)</td>
   vertical-align: middle;
 }
 
-#xakeohtomh .gt_from_md > :first-child {
+#leblvsbsko .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xakeohtomh .gt_from_md > :last-child {
+#leblvsbsko .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xakeohtomh .gt_row {
+#leblvsbsko .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1845,7 +1827,7 @@ Sanitiser (1L)</td>
   overflow-x: hidden;
 }
 
-#xakeohtomh .gt_stub {
+#leblvsbsko .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1858,7 +1840,7 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#xakeohtomh .gt_stub_row_group {
+#leblvsbsko .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1872,11 +1854,11 @@ Sanitiser (1L)</td>
   vertical-align: top;
 }
 
-#xakeohtomh .gt_row_group_first td {
+#leblvsbsko .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xakeohtomh .gt_summary_row {
+#leblvsbsko .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1886,16 +1868,16 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#xakeohtomh .gt_first_summary_row {
+#leblvsbsko .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xakeohtomh .gt_first_summary_row.thick {
+#leblvsbsko .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xakeohtomh .gt_last_summary_row {
+#leblvsbsko .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1905,7 +1887,7 @@ Sanitiser (1L)</td>
   border-bottom-color: #D3D3D3;
 }
 
-#xakeohtomh .gt_grand_summary_row {
+#leblvsbsko .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1915,7 +1897,7 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#xakeohtomh .gt_first_grand_summary_row {
+#leblvsbsko .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1925,11 +1907,11 @@ Sanitiser (1L)</td>
   border-top-color: #D3D3D3;
 }
 
-#xakeohtomh .gt_striped {
+#leblvsbsko .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xakeohtomh .gt_table_body {
+#leblvsbsko .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1938,7 +1920,7 @@ Sanitiser (1L)</td>
   border-bottom-color: #D3D3D3;
 }
 
-#xakeohtomh .gt_footnotes {
+#leblvsbsko .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1952,7 +1934,7 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#xakeohtomh .gt_footnote {
+#leblvsbsko .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1961,7 +1943,7 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#xakeohtomh .gt_sourcenotes {
+#leblvsbsko .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1975,7 +1957,7 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#xakeohtomh .gt_sourcenote {
+#leblvsbsko .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1983,64 +1965,64 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#xakeohtomh .gt_left {
+#leblvsbsko .gt_left {
   text-align: left;
 }
 
-#xakeohtomh .gt_center {
+#leblvsbsko .gt_center {
   text-align: center;
 }
 
-#xakeohtomh .gt_right {
+#leblvsbsko .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xakeohtomh .gt_font_normal {
+#leblvsbsko .gt_font_normal {
   font-weight: normal;
 }
 
-#xakeohtomh .gt_font_bold {
+#leblvsbsko .gt_font_bold {
   font-weight: bold;
 }
 
-#xakeohtomh .gt_font_italic {
+#leblvsbsko .gt_font_italic {
   font-style: italic;
 }
 
-#xakeohtomh .gt_super {
+#leblvsbsko .gt_super {
   font-size: 65%;
 }
 
-#xakeohtomh .gt_footnote_marks {
+#leblvsbsko .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#xakeohtomh .gt_asterisk {
+#leblvsbsko .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xakeohtomh .gt_indent_1 {
+#leblvsbsko .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xakeohtomh .gt_indent_2 {
+#leblvsbsko .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xakeohtomh .gt_indent_3 {
+#leblvsbsko .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xakeohtomh .gt_indent_4 {
+#leblvsbsko .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xakeohtomh .gt_indent_5 {
+#leblvsbsko .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2090,16 +2072,12 @@ Sanitiser (1L)</td>
 <div class="section level2">
 <h2 id="gasoline-weights">Gasoline Weights<a class="anchor" aria-label="anchor" href="#gasoline-weights"></a>
 </h2>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meb_weights</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"gasoline"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html" class="external-link">gt</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div id="djbvokaosq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ozzsbrdpxh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#djbvokaosq .gt_table {
+#ozzsbrdpxh .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2124,7 +2102,7 @@ Sanitiser (1L)</td>
   border-left-color: #D3D3D3;
 }
 
-#djbvokaosq .gt_heading {
+#ozzsbrdpxh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2136,12 +2114,12 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#djbvokaosq .gt_caption {
+#ozzsbrdpxh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#djbvokaosq .gt_title {
+#ozzsbrdpxh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2153,7 +2131,7 @@ Sanitiser (1L)</td>
   border-bottom-width: 0;
 }
 
-#djbvokaosq .gt_subtitle {
+#ozzsbrdpxh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2165,13 +2143,13 @@ Sanitiser (1L)</td>
   border-top-width: 0;
 }
 
-#djbvokaosq .gt_bottom_border {
+#ozzsbrdpxh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#djbvokaosq .gt_col_headings {
+#ozzsbrdpxh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2186,7 +2164,7 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#djbvokaosq .gt_col_heading {
+#ozzsbrdpxh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2206,7 +2184,7 @@ Sanitiser (1L)</td>
   overflow-x: hidden;
 }
 
-#djbvokaosq .gt_column_spanner_outer {
+#ozzsbrdpxh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2218,15 +2196,15 @@ Sanitiser (1L)</td>
   padding-right: 4px;
 }
 
-#djbvokaosq .gt_column_spanner_outer:first-child {
+#ozzsbrdpxh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#djbvokaosq .gt_column_spanner_outer:last-child {
+#ozzsbrdpxh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#djbvokaosq .gt_column_spanner {
+#ozzsbrdpxh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2238,7 +2216,7 @@ Sanitiser (1L)</td>
   width: 100%;
 }
 
-#djbvokaosq .gt_group_heading {
+#ozzsbrdpxh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2264,7 +2242,7 @@ Sanitiser (1L)</td>
   text-align: left;
 }
 
-#djbvokaosq .gt_empty_group_heading {
+#ozzsbrdpxh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2279,15 +2257,15 @@ Sanitiser (1L)</td>
   vertical-align: middle;
 }
 
-#djbvokaosq .gt_from_md > :first-child {
+#ozzsbrdpxh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#djbvokaosq .gt_from_md > :last-child {
+#ozzsbrdpxh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#djbvokaosq .gt_row {
+#ozzsbrdpxh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2306,7 +2284,7 @@ Sanitiser (1L)</td>
   overflow-x: hidden;
 }
 
-#djbvokaosq .gt_stub {
+#ozzsbrdpxh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2319,7 +2297,7 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#djbvokaosq .gt_stub_row_group {
+#ozzsbrdpxh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2333,11 +2311,11 @@ Sanitiser (1L)</td>
   vertical-align: top;
 }
 
-#djbvokaosq .gt_row_group_first td {
+#ozzsbrdpxh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#djbvokaosq .gt_summary_row {
+#ozzsbrdpxh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2347,16 +2325,16 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#djbvokaosq .gt_first_summary_row {
+#ozzsbrdpxh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#djbvokaosq .gt_first_summary_row.thick {
+#ozzsbrdpxh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#djbvokaosq .gt_last_summary_row {
+#ozzsbrdpxh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2366,7 +2344,7 @@ Sanitiser (1L)</td>
   border-bottom-color: #D3D3D3;
 }
 
-#djbvokaosq .gt_grand_summary_row {
+#ozzsbrdpxh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2376,7 +2354,7 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#djbvokaosq .gt_first_grand_summary_row {
+#ozzsbrdpxh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2386,11 +2364,11 @@ Sanitiser (1L)</td>
   border-top-color: #D3D3D3;
 }
 
-#djbvokaosq .gt_striped {
+#ozzsbrdpxh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#djbvokaosq .gt_table_body {
+#ozzsbrdpxh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2399,7 +2377,7 @@ Sanitiser (1L)</td>
   border-bottom-color: #D3D3D3;
 }
 
-#djbvokaosq .gt_footnotes {
+#ozzsbrdpxh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2413,7 +2391,7 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#djbvokaosq .gt_footnote {
+#ozzsbrdpxh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2422,7 +2400,7 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#djbvokaosq .gt_sourcenotes {
+#ozzsbrdpxh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2436,7 +2414,7 @@ Sanitiser (1L)</td>
   border-right-color: #D3D3D3;
 }
 
-#djbvokaosq .gt_sourcenote {
+#ozzsbrdpxh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2444,64 +2422,64 @@ Sanitiser (1L)</td>
   padding-right: 5px;
 }
 
-#djbvokaosq .gt_left {
+#ozzsbrdpxh .gt_left {
   text-align: left;
 }
 
-#djbvokaosq .gt_center {
+#ozzsbrdpxh .gt_center {
   text-align: center;
 }
 
-#djbvokaosq .gt_right {
+#ozzsbrdpxh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#djbvokaosq .gt_font_normal {
+#ozzsbrdpxh .gt_font_normal {
   font-weight: normal;
 }
 
-#djbvokaosq .gt_font_bold {
+#ozzsbrdpxh .gt_font_bold {
   font-weight: bold;
 }
 
-#djbvokaosq .gt_font_italic {
+#ozzsbrdpxh .gt_font_italic {
   font-style: italic;
 }
 
-#djbvokaosq .gt_super {
+#ozzsbrdpxh .gt_super {
   font-size: 65%;
 }
 
-#djbvokaosq .gt_footnote_marks {
+#ozzsbrdpxh .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#djbvokaosq .gt_asterisk {
+#ozzsbrdpxh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#djbvokaosq .gt_indent_1 {
+#ozzsbrdpxh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#djbvokaosq .gt_indent_2 {
+#ozzsbrdpxh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#djbvokaosq .gt_indent_3 {
+#ozzsbrdpxh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#djbvokaosq .gt_indent_4 {
+#ozzsbrdpxh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#djbvokaosq .gt_indent_5 {
+#ozzsbrdpxh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
