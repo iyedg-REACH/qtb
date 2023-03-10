@@ -15,5 +15,20 @@ reference:
   - tracked_municipalities
 - title: Misc
   desc: General Utilities
-  contents: apply_cleaning_log
+  contents:
+  - apply_cleaning_log
+  - get_item_columns
+  - generate_enumerator_id
+  - find_outliers
+  - write_cleaning_log
+  - init_data_collection
 
+- title: Cleaning Pipeline
+  contents:
+  - qtb_visnetwork
+  - pipeline
+
+- title: Data-Augmenting Functions
+  desc: Functions that ingest raw data and augment it
+  contents:
+  - starts_with("augment")

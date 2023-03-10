@@ -11,16 +11,35 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     assertthat,
+    cleaninginspectoR (>= 0.0.0.9000),
+    cli,
+    crosstalk,
     dplyr,
+    DT,
+    fs,
     ggplot2,
+    glue,
+    gt,
     here,
+    janitor,
+    leaflet,
     lifecycle,
+    magrittr,
+    openxlsx,
+    plotly,
+    qs,
+    quarto,
+    quiveR (>= 0.0.0.9005),
+    readxl,
     rlang,
     stringr,
+    tarchetypes,
+    targets,
     tibble,
-    tidyr
+    tidylog,
+    tidyr,
+    tidyselect
 Suggests: 
-    gt,
     paletteer,
     rmarkdown,
     testthat (>= 3.0.0)
@@ -30,3 +49,6 @@ RoxygenNote: 7.2.3
 Depends: 
     R (>= 2.10)
 URL: https://iyedg-reach.github.io/qtb/
+Remotes: 
+    iyedg-REACH/quiveR,
+    impact-initiatives/cleaninginspectoR
