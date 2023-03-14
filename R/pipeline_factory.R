@@ -9,30 +9,61 @@ validate_period_label <- function(period) {
   )
 }
 
+#' Download Data From KoBo ToolBox
+#'
+#' @param period a character vector in the format "JMMI_YEAR_MONTH"
+#' @param uid the uid of the form
+#' @param kobo_username KoBo Username, defaults to the environment variable KOBO_USERNAME
+#' @param kobo_password  KoBo Password, defaults to the environment variable KOBO_PASSWORD
+#' @param base_path path where the file will be downloaded
+#' @param raw_data_age the duration after which the download will be refreshed
+kobo_download_target <- function(period,
+                                 uid,
+                                 kobo_username = Sys.getenv("KOBO_USERNAME"),
+                                 kobo_password = Sys.getenv("KOBO_PASSWORD"),
+                                 base_path = here::here(),
+                                 raw_data_age = as.difftime(8, units = "hours")) {
+  tar_target_raw(
+    name = "raw_data_path",
+    command = substitute(
+      quiveR::kobo_download_dataset(
+        asset_uid = uid,
+        user_name = user_name,
+        user_password = user_password,
+        file_path = fs::path(base_path, paste0(period, "_raw_data", ".xlsx")),
+        lang = "xls"
+      ),
+      env = list(
+        uid = uid,
+        user_name = kobo_username,
+        user_password = kobo_password,
+        base_path = base_path,
+        period = period
+      )
+    ),
+    cue = tarchetypes::tar_cue_age_raw(
+      "raw_data_path",
+      age = raw_data_age
+    ),
+    format = "file"
+  )
+}
+
 #' Data Cleaning Pipeline
 #'
 #' @param period Period Name
-#' @param kobo_username KoBo Username, defaults to KOBO_USERNAME from environment
-#' @param kobo_password KoBo Password, defaults to KOBO_PASSWORD from environment
-#' @param uid Form UID on KoBo Toolbox
 #' @param base_path Path to the project
-#' @param raw_data_age Duration for refreshing the KoBo Data Export
 #'
 #' @return
-#' @export
 pipeline <- function(period,
-                     kobo_username = Sys.getenv("KOBO_USERNAME"),
-                     kobo_password = Sys.getenv("KOBO_PASSWORD"),
-                     uid,
-                     base_path,
-                     raw_data_age = as.difftime(8, units = "hours")) {
+                     base_path) {
   base_target_name <- toupper(deparse(substitute(period)))
-  validate_period_label(base_target_name)
+  # validate_period_label(base_target_name)
 
-  tar_name_raw <- paste0("raw")
+  tar_name_raw <- paste0("raw_data_path")
   tar_name_cleaning_log_path <- paste0("cleaning_log_path")
   tar_name_data <- paste0("data")
-  tar_name_report <- paste0("report")
+  # tar_name_report <- paste0("report")
 
   tar_name_cleanin_log_wb <- paste0("wb")
   tar_name_summary <- paste0("summary")
@@ -158,40 +189,9 @@ pipeline <- function(period,
 
   base_path <- fs::path_abs(base_path)
 
-  kobo_target <- tar_target_raw(
-    name = paste0(base_target_name, "_raw"),
-    command = substitute(
-      quiveR::kobo_download_dataset(
-        asset_uid = uid,
-        user_name = user_name,
-        user_password = user_password,
-        file_path = fs::path(base_path, paste0(base_target_name, ".xlsx")),
-        lang = "xls"
-      ),
-      env = list(
-        uid = uid,
-        user_name = kobo_username,
-        user_password = kobo_password,
-        base_path = base_path,
-        base_target_name = base_target_name
-      )
-    ),
-    cue = tarchetypes::tar_cue_age_raw(
-      paste0(base_target_name, "_raw"),
-      age = raw_data_age
-    ),
-    format = "file"
-  )
+
 
   list(
-    tar_target_raw(
-      name = tar_name_raw,
-      command = substitute(
-        fs::path(dir_path, paste0(base_target_name, ".xlsx")),
-        env = list(dir_path = base_path, base_target_name = base_target_name)
-      ),
-      format = "file"
-    ),
     tar_target_raw(
       name = tar_name_cleaning_log_path,
       command = substitute(fs::path(
@@ -227,11 +227,11 @@ pipeline <- function(period,
         )
       ),
       packages = c("dplyr", "magrittr")
-    ),
-    tarchetypes::tar_quarto_raw(
-      "report",
-      path = fs::path(base_path, "report", "report.qmd"),
-      execute_params = quote(list())
     )
+    # tarchetypes::tar_quarto_raw(
+    #   "report",
+    #   path = fs::path(base_path, "report", "report.qmd"),
+    #   execute_params = quote(list())
+    # )
   )
 }
