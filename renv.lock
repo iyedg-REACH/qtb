@@ -1519,16 +1519,10 @@
     },
     "packrat": {
       "Package": "packrat",
-      "Version": "0.9.0",
+      "Version": "0.9.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "packrat",
-      "RemoteRef": "packrat",
-      "RemoteRepos": "https://cloud.r-project.org",
-      "RemotePkgPlatform": "source",
-      "RemoteSha": "0.9.0",
-      "Hash": "2735eb4b51c302014f53acbb3c80a65f",
+      "Hash": "481428983c19a7c443f7ea1beff0a2de",
       "Requirements": []
     },
     "paletteer": {
