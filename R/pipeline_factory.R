@@ -17,6 +17,9 @@ validate_period_label <- function(period) {
 #' @param kobo_password  KoBo Password, defaults to the environment variable KOBO_PASSWORD
 #' @param base_path path where the file will be downloaded
 #' @param raw_data_age the duration after which the download will be refreshed
+#'
+#' @return
+#' @export
 kobo_download_target <- function(period,
                                  uid,
                                  kobo_username = Sys.getenv("KOBO_USERNAME"),
@@ -55,6 +58,8 @@ kobo_download_target <- function(period,
 #' @param base_path Path to the project
 #'
 #' @return
+#' @export
+
 pipeline <- function(period,
                      base_path) {
   base_target_name <- toupper(deparse(substitute(period)))
